@@ -2,9 +2,15 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUT="${1:-"$ROOT/dist/kami.zip"}"
-PACKAGE_MAX_BYTES="${KAMI_PACKAGE_MAX_BYTES:-6000000}"
-PACKAGE_FORBIDDEN_RE='^(assets/showcase/|assets/images/[123]\.png$|assets/fonts/TsangerJinKai02-W0[45]\.ttf$)'
+OUT="${1:-"$ROOT/dist/k-ramie.zip"}"
+PACKAGE_MAX_BYTES="${KRAMIE_PACKAGE_MAX_BYTES:-${KAMI_PACKAGE_MAX_BYTES:-6000000}}"
+
+# Korean web fonts are bundled in the repo (assets/fonts/<FontFamily>/) but
+# excluded from dist/k-ramie.zip. The skill consumer either fetches them via
+# scripts/ensure-fonts.sh / .ps1 or falls back to the OS font chain.
+# Sandoll Gukdae Tteokbokki additionally has a no-CI/BI clause — keeping it
+# out of the redistributable package is the cleanest way to honour that.
+PACKAGE_FORBIDDEN_RE='^(assets/showcase/|assets/images/[123]\.png$|assets/fonts/(BareunBatang|ChosunilboMyungjo|D2Coding|KoPubWorldBatang|Pretendard|SandollGukdaeTteokbokki)/)'
 PACKAGE_REQUIRED_ENTRY='assets/images/logo.svg'
 
 mkdir -p "$(dirname "$OUT")"
@@ -18,7 +24,7 @@ trap 'rm -f "$MANIFEST" "$FILTERED_MANIFEST"' EXIT
 
 git ls-files > "$MANIFEST"
 awk '
-  /^assets\/fonts\/TsangerJinKai02-W0[45]\.ttf$/ { next }
+  /^assets\/fonts\/(BareunBatang|ChosunilboMyungjo|D2Coding|KoPubWorldBatang|Pretendard|SandollGukdaeTteokbokki)\// { next }
   /^assets\/examples\// { next }
   /^assets\/illustrations\// { next }
   /^assets\/showcase\// { next }

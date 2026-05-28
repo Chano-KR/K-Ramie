@@ -9,27 +9,62 @@
     font-style: normal;
     font-display: swap;
   }
+  /* Chosunilbo Myungjo — single weight. */
   @font-face {
     font-family: "Chosunilbo Myungjo";
-    src: url("assets/fonts/ChosunilboMyungjo/ChosunilboMyungjo.woff2") format("woff2");
+    src: url("assets/fonts/ChosunilboMyungjo/ChosunNm.woff2") format("woff2");
+    font-weight: 300 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Bareun Batang Pro — three weights (Pro1 = light, Pro2 = body, Pro3 = bold). */
+  @font-face {
+    font-family: "Bareun Batang";
+    src: url("assets/fonts/BareunBatang/BareunBatangPro1.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Bareun Batang";
+    src: url("assets/fonts/BareunBatang/BareunBatangPro2.woff2") format("woff2");
     font-weight: 400 500;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: "Bareun Batang";
-    src: url("assets/fonts/BareunBatang/BareunBatang.woff2") format("woff2");
+    src: url("assets/fonts/BareunBatang/BareunBatangPro3.woff2") format("woff2");
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* KoPub World Batang — Light / Medium / Bold (file names contain spaces — URL-encoded as %20). */
+  @font-face {
+    font-family: "KoPub World Batang";
+    src: url("assets/fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "KoPub World Batang";
+    src: url("assets/fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Medium.woff2") format("woff2");
     font-weight: 400 500;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: "KoPub World Batang";
-    src: url("assets/fonts/KoPubWorldBatang/KoPubWorldBatang.woff2") format("woff2");
-    font-weight: 400 500;
+    src: url("assets/fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Bold.woff2") format("woff2");
+    font-weight: 600 700;
     font-style: normal;
     font-display: swap;
   }
+
+  /* Pretendard — variable font, full 100-900 range. */
   @font-face {
     font-family: "Pretendard";
     src: url("assets/fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations");
@@ -37,19 +72,30 @@
     font-style: normal;
     font-display: swap;
   }
+
+  /* D2Coding — single weight (Naver ships only Regular as TTF). */
   @font-face {
     font-family: "D2Coding";
-    src: url("assets/fonts/D2Coding/D2Coding.woff2") format("woff2");
+    src: url("assets/fonts/D2Coding/D2Coding-Ver1.3.2-20180524.woff2") format("woff2");
     font-weight: 400 700;
     font-style: normal;
     font-display: swap;
   }
+
+  /* Sandoll Gukdae Tteokbokki — DISPLAY ONLY. Body / heading / slide-title
+     MUST NOT inherit this face. License also forbids CI/BI — see FONTS.md.
+     aLt = Light, bBd = Bold. */
   @font-face {
-    /* Display only. Body / heading / slide-title MUST NOT inherit this face.
-       License also forbids CI/BI use — see FONTS.md. */
     font-family: "Sandoll Gukdae Tteokbokki";
-    src: url("assets/fonts/SandollGukdaeTteokbokki/SandollGukdaeTteokbokki.woff2") format("woff2");
-    font-weight: 400 700;
+    src: url("assets/fonts/SandollGukdaeTteokbokki/SDKukdetopokki-aLt.woff2") format("woff2");
+    font-weight: 300 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Sandoll Gukdae Tteokbokki";
+    src: url("assets/fonts/SandollGukdaeTteokbokki/SDKukdetopokki-bBd.woff2") format("woff2");
+    font-weight: 600 700;
     font-style: normal;
     font-display: swap;
   }

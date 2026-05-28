@@ -10,6 +10,16 @@
 <title>{{제목}}</title>
 <style>
   @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 400; }
+  /* KRAMIE-FONTS */
+  @font-face { font-family: "Chosunilbo Myungjo"; src: url("../fonts/ChosunilboMyungjo/ChosunNm.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro1.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro2.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro3.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Medium.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Bold.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Pretendard"; src: url("../fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations"); font-weight: 100 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "D2Coding"; src: url("../fonts/D2Coding/D2Coding-Ver1.3.2-20180524.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
 
   @page {
     size: 280mm 158mm;
@@ -190,7 +200,7 @@
     gap: 22pt;
   }
 
-  /* 2×2 对齐布局必须用 table，CSS Grid 会导致行高不对齐 */
+  /* 2×2 정렬 레이아웃은 table 사용 필수. CSS Grid는 행 높이가 정렬되지 않음 */
   .t2x2 {
     width: 100%;
     border-collapse: separate;
@@ -258,27 +268,27 @@
 </head>
 <body>
 
-<!-- 封面 -->
+<!-- 표지 -->
 <section class="slide cover">
   <h1>{{제목}}</h1>
-  <div class="sub">{{副제목}}</div>
-  <div class="meta">{{작성자}} · {{日期}}</div>
+  <div class="sub">{{부제}}</div>
+  <div class="meta">{{작성자}} · {{날짜}}</div>
 </section>
 
-<!-- 본문页 · 两栏布局 -->
+<!-- 본문 페이지 · 2열 레이아웃 -->
 <section class="slide">
-  <span class="eyebrow">01 · {{章节}}</span>
-  <h2>{{页面제목}}</h2>
-  <p class="lead">{{引도입부}}</p>
+  <span class="eyebrow">01 · {{섹션}}</span>
+  <h2>{{페이지 제목}}</h2>
+  <p class="lead">{{도입부}}</p>
 
   <div class="c2">
     <div>
-      <h3>{{左栏제목}}</h3>
-      <p class="mb">{{左栏내용}}</p>
+      <h3>{{좌측 열 제목}}</h3>
+      <p class="mb">{{좌측 열 내용}}</p>
     </div>
     <div>
-      <h3>{{右栏제목}}</h3>
-      <p class="mb">{{右栏내용}}</p>
+      <h3>{{우측 열 제목}}</h3>
+      <p class="mb">{{우측 열 내용}}</p>
     </div>
   </div>
 
@@ -286,30 +296,30 @@
   <div class="footer-mark">{{프로젝트명칭}}</div>
 </section>
 
-<!-- 본문页 · 2×2 模块 -->
+<!-- 본문 페이지 · 2×2 모듈 -->
 <section class="slide">
-  <span class="eyebrow">02 · {{章节}}</span>
-  <h2>{{页面제목}}</h2>
+  <span class="eyebrow">02 · {{섹션}}</span>
+  <h2>{{페이지 제목}}</h2>
 
   <table class="t2x2">
     <tr>
       <td>
-        <div class="mt"><span class="ml">A</span>{{模块제목}}</div>
-        <p class="mb">{{模块설명}}</p>
+        <div class="mt"><span class="ml">A</span>{{모듈 제목}}</div>
+        <p class="mb">{{모듈 설명}}</p>
       </td>
       <td>
-        <div class="mt"><span class="ml">B</span>{{模块제목}}</div>
-        <p class="mb">{{模块설명}}</p>
+        <div class="mt"><span class="ml">B</span>{{모듈 제목}}</div>
+        <p class="mb">{{모듈 설명}}</p>
       </td>
     </tr>
     <tr>
       <td>
-        <div class="mt"><span class="ml">C</span>{{模块제목}}</div>
-        <p class="mb">{{模块설명}}</p>
+        <div class="mt"><span class="ml">C</span>{{모듈 제목}}</div>
+        <p class="mb">{{모듈 설명}}</p>
       </td>
       <td>
-        <div class="mt"><span class="ml">D</span>{{模块제목}}</div>
-        <p class="mb">{{模块설명}}</p>
+        <div class="mt"><span class="ml">D</span>{{모듈 제목}}</div>
+        <p class="mb">{{모듈 설명}}</p>
       </td>
     </tr>
   </table>
@@ -318,34 +328,34 @@
   <div class="footer-mark">{{프로젝트명칭}}</div>
 </section>
 
-<!-- 본문页 · 底部 callout -->
+<!-- 본문 페이지 · 하단 callout -->
 <section class="slide">
-  <span class="eyebrow">03 · {{章节}}</span>
-  <h2>{{页面제목}}</h2>
+  <span class="eyebrow">03 · {{섹션}}</span>
+  <h2>{{페이지 제목}}</h2>
 
   <p class="mb">{{본문내용}}</p>
 
-  <div class="co">{{底部결론或关键판단}}</div>
+  <div class="co">{{하단 결론 또는 핵심 판단}}</div>
 
   <div class="page-num">03</div>
   <div class="footer-mark">{{프로젝트명칭}}</div>
 </section>
 
-<!-- 본문页 · 表格 -->
+<!-- 본문 페이지 · 표 -->
 <section class="slide">
-  <span class="eyebrow">04 · {{章节}}</span>
-  <h2>{{页面제목}}</h2>
+  <span class="eyebrow">04 · {{섹션}}</span>
+  <h2>{{페이지 제목}}</h2>
 
   <table class="data">
     <tr>
-      <td>{{维度}}</td>
+      <td>{{차원}}</td>
       <td>{{내용}}</td>
-      <td>{{备注}}</td>
+      <td>{{비고}}</td>
     </tr>
     <tr>
-      <td>{{维度}}</td>
+      <td>{{차원}}</td>
       <td>{{내용}}</td>
-      <td>{{备注}}</td>
+      <td>{{비고}}</td>
     </tr>
   </table>
 

@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <!-- ==================================================================
      EQUITY REPORT TEMPLATE · parchment design system
-     2-3 页 A4 个股研报 / 估值分析 / 投资备忘
-     结构：제목区 -> 核心指标 -> 图表分析 -> 竞争格局 -> 리스크 -> 总结
+     2-3페이지 A4 종목 리서치 / 밸류에이션 분석 / 투자 메모
+     구조: 제목 영역 -> 핵심 지표 -> 차트 분석 -> 경쟁 구도 -> 리스크 -> 요약
      ================================================================== -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{股票명칭}} · 个股研报</title>
+<title>{{종목명}} · 종목 리서치</title>
 <meta name="author" content="{{작성자}}">
 <meta name="description" content="{{요약}}">
 <meta name="keywords" content="{{키워드}}">
 <meta name="generator" content="K-Ramie">
 <style>
+  @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  /* KRAMIE-FONTS */
+  @font-face { font-family: "Chosunilbo Myungjo"; src: url("../fonts/ChosunilboMyungjo/ChosunNm.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro1.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro2.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro3.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Medium.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Bold.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Pretendard"; src: url("../fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations"); font-weight: 100 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "D2Coding"; src: url("../fonts/D2Coding/D2Coding-Ver1.3.2-20180524.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
   /* Regular weight */
   /* Bold weight - W05 for all bold variants */
   @page {
@@ -21,7 +32,7 @@
     background: #f5f4ed;
 
     @bottom-center {
-      content: counter(page) "  ·  {{股票명칭}} 研报";
+      content: counter(page) "  ·  {{종목명}} 리서치";
       font-family: Georgia, serif;
       font-size: 9pt;
       color: #6b6a64;
@@ -343,14 +354,14 @@
 <!-- ========== HEADER ========== -->
 <div class="report-header">
   <div class="ticker-block">
-    <div class="ticker-eyebrow">{{EYEBROW · 如 "个股研报" / "估值分析" / "投资备忘"}}</div>
-    <div class="ticker-name">{{公司명칭}} <span style="font-size: 14pt; color: var(--stone);">{{股票代码}}</span></div>
-    <div class="ticker-sub">{{行业}} · {{交易所}} · {{一句核心판단}}</div>
+    <div class="ticker-eyebrow">{{EYEBROW · 예: "종목 리서치" / "밸류에이션 분석" / "투자 메모"}}</div>
+    <div class="ticker-name">{{기업명}} <span style="font-size: 14pt; color: var(--stone);">{{티커}}</span></div>
+    <div class="ticker-sub">{{업계}} · {{거래소}} · {{한 문장 핵심 판단}}</div>
   </div>
   <div class="price-block">
-    <div class="price-current">{{当前价格}}</div>
-    <div class="price-change up">{{涨跌幅 如 "+12.3%"}}</div>
-    <div class="price-date">{{日期}}</div>
+    <div class="price-current">{{현재 가격}}</div>
+    <div class="price-change up">{{등락률 예: "+12.3%"}}</div>
+    <div class="price-date">{{날짜}}</div>
   </div>
 </div>
 
@@ -358,7 +369,7 @@
 <div class="metrics">
   <div class="metric">
     <div class="metric-value">{{숫자}}</div>
-    <div class="metric-label">市值</div>
+    <div class="metric-label">시가총액</div>
   </div>
   <div class="metric">
     <div class="metric-value">{{숫자}}</div>
@@ -366,38 +377,38 @@
   </div>
   <div class="metric">
     <div class="metric-value">{{숫자}}</div>
-    <div class="metric-label">营收</div>
+    <div class="metric-label">매출</div>
   </div>
   <div class="metric">
     <div class="metric-value">{{숫자}}</div>
-    <div class="metric-label">利润率</div>
+    <div class="metric-label">이익률</div>
   </div>
 </div>
 
 <!-- ========== INVESTMENT THESIS ========== -->
-<h2>投资逻辑</h2>
-<p>{{2-3 句核心投资논점。用 <span class="hl">关键데이터</span> 支撑판단。这段是整份研报的灵魂。}}</p>
+<h2>투자 논리</h2>
+<p>{{2~3문장 핵심 투자 주장. <span class="hl">핵심 데이터</span>로 판단 뒷받침. 이 단락이 리서치 전체의 핵심.}}</p>
 
 <div class="callout">
-  {{一句话总结：买入/持有/观望的核心理由。}}
+  {{한 문장 요약: 매수 / 보유 / 관망의 핵심 근거.}}
 </div>
 
-<!-- ========== CHART (嵌入 SVG 图表) ========== -->
-<h2>价格走势</h2>
+<!-- ========== CHART (SVG 차트 임베드) ========== -->
+<h2>가격 추이</h2>
 <figure>
-  <!-- 从 candlestick.html 或 line-chart.html 提取 <svg> 嵌入此处 -->
+  <!-- candlestick.html 또는 line-chart.html에서 <svg> 추출 후 여기 임베드 -->
   <div class="chart-placeholder" style="height: 60mm;">
-    [K 线图 / 价格走势图占位 · 从 diagrams/ 提取 SVG 嵌入]
+    [캔들 차트 / 가격 추이 차트 자리 · diagrams/에서 SVG 추출 후 임베드]
   </div>
-  <figcaption>{{图表제목，如 "近 20 个交易日价格走势"}}</figcaption>
+  <figcaption>{{차트 제목, 예: "최근 20거래일 가격 추이"}}</figcaption>
 </figure>
 
 <!-- ========== FINANCIALS ========== -->
-<h2>财务概览</h2>
+<h2>재무 개요</h2>
 <table class="financial striped">
   <thead>
     <tr>
-      <th>指标</th>
+      <th>지표</th>
       <th>FY2023</th>
       <th>FY2024</th>
       <th>FY2025E</th>
@@ -405,13 +416,13 @@
   </thead>
   <tbody>
     <tr>
-      <td>营收</td>
+      <td>매출</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
     </tr>
     <tr>
-      <td>净利润</td>
+      <td>순이익</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
@@ -423,7 +434,7 @@
       <td>{{데이터}}</td>
     </tr>
     <tr>
-      <td>毛利率</td>
+      <td>매출총이익률</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
@@ -437,54 +448,54 @@
   </tbody>
 </table>
 
-<!-- ========== REVENUE BREAKDOWN (可选图表) ========== -->
-<h2>收入结构</h2>
+<!-- ========== REVENUE BREAKDOWN (선택 차트) ========== -->
+<h2>매출 구조</h2>
 <figure>
   <div class="chart-placeholder" style="height: 50mm;">
-    [营收分解图占位 · 环形图或瀑布图]
+    [매출 분해 차트 자리 · 도넛 차트 또는 폭포 차트]
   </div>
-  <figcaption>{{图表제목}}</figcaption>
+  <figcaption>{{차트 제목}}</figcaption>
 </figure>
 
 <!-- ========== COMPETITIVE POSITIONING ========== -->
 <div class="page-break"></div>
-<h2>竞争格局</h2>
-<p>{{行业格局概述，1-2 段。}}</p>
+<h2>경쟁 구도</h2>
+<p>{{업계 구도 개요, 1~2단락.}}</p>
 
 <table class="financial compact striped">
   <thead>
     <tr>
-      <th>公司</th>
-      <th>市值</th>
+      <th>기업</th>
+      <th>시가총액</th>
       <th>P/E</th>
-      <th>营收增速</th>
-      <th>利润率</th>
+      <th>매출 성장률</th>
+      <th>이익률</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>{{目标公司}}</strong></td>
+      <td><strong>{{대상 기업}}</strong></td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
     </tr>
     <tr>
-      <td>{{竞品 A}}</td>
+      <td>{{경쟁사 A}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
     </tr>
     <tr>
-      <td>{{竞品 B}}</td>
+      <td>{{경쟁사 B}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
     </tr>
     <tr>
-      <td>{{竞品 C}}</td>
+      <td>{{경쟁사 C}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
       <td>{{데이터}}</td>
@@ -494,7 +505,7 @@
 </table>
 
 <!-- ========== RISKS ========== -->
-<h2>리스크提示</h2>
+<h2>리스크 안내</h2>
 <div class="risk-grid">
   <div class="risk-item">
     <div class="risk-label">{{리스크유형 1}}</div>
@@ -516,14 +527,14 @@
 
 <!-- ========== ANALYST SUMMARY ========== -->
 <div class="analyst-box">
-  <div class="analyst-label">分析师总结</div>
-  {{3-5 句总结。包含目标价（如有）、评级建议、核心催化剂、关键假设。}}
+  <div class="analyst-label">애널리스트 요약</div>
+  {{3~5문장 요약. 목표가(있다면), 등급 제안, 핵심 촉매, 핵심 가정 포함.}}
 </div>
 
 <!-- ========== FOOTER ========== -->
 <div class="report-footer">
-  <span>{{机构名 / 免责声明}}</span>
-  <span>{{작성자}} · {{日期}}</span>
+  <span>{{기관명 / 면책 조항}}</span>
+  <span>{{작성자}} · {{날짜}}</span>
 </div>
 
 </body>

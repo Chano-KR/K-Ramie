@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <!-- ==================================================================
-     ONE-PAGER TEMPLATE · parchment design system
-     单页 A4 方案/报告/실행 요약
-     改完跑：python3 -c "from weasyprint import HTML; HTML('one-pager.html').write_pdf('out.pdf')"
-     目标：页数必须 == 1
+     ONE-PAGER TEMPLATE · K-Ramie parchment design system
+     단일 페이지 A4 방안 / 보고서 / 실행 요약
+     수정 후 실행: python3 -c "from weasyprint import HTML; HTML('one-pager.html').write_pdf('out.pdf')"
+     목표: 페이지 수 반드시 == 1
      ================================================================== -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{文档제목}}</title>
+<title>{{문서 제목}}</title>
 <meta name="author" content="{{작성자}}">
 <meta name="description" content="{{요약}}">
 <meta name="keywords" content="{{키워드}}">
 <meta name="generator" content="K-Ramie">
 <style>
-  /* Regular weight */
-  /* Bold weight - W05 for all bold variants */
+  @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  /* KRAMIE-FONTS */
+  @font-face { font-family: "Chosunilbo Myungjo"; src: url("../fonts/ChosunilboMyungjo/ChosunNm.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro1.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro2.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro3.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Medium.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Bold.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Pretendard"; src: url("../fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations"); font-weight: 100 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "D2Coding"; src: url("../fonts/D2Coding/D2Coding-Ver1.3.2-20180524.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
   @page {
     size: A4;
     margin: 15mm 18mm 15mm 18mm;
@@ -51,6 +60,9 @@
     font-size: 10pt;
     line-height: 1.45;
     letter-spacing: 0.3pt;
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: anywhere;
   }
 
   .serif {
@@ -78,7 +90,7 @@
     text-transform: uppercase;
     margin-bottom: 4pt;
   }
-  
+
   h1 {
     font-family: var(--serif);
     font-size: 24pt;
@@ -101,8 +113,8 @@
   }
 
   /* ========== METRICS ========== */
-  /* 横向 baseline 布局 - -  和 resume.html 一致的 kami native 姿态。
-     背景透明、无边框，用 typography 本身承担层次，不加容器。 */
+  /* Horizontal baseline layout — same kami-native stance as resume.html.
+     Transparent background, no border; typography carries hierarchy, no container. */
   .metrics {
     display: flex;
     gap: 14pt;
@@ -172,7 +184,7 @@
     gap: 18pt;
   }
 
-  /* ========== 短横线 list（代替默认 bullet） ========== */
+  /* ========== Dash list (replaces default bullet) ========== */
   ul.dash {
     list-style: none;
     margin: 0;
@@ -191,7 +203,7 @@
     color: var(--brand);
   }
 
-  /* ========== Timeline (横向进度点) ========== */
+  /* ========== Timeline (horizontal step markers) ========== */
   .timeline {
     display: flex;
     gap: 12pt;
@@ -223,7 +235,7 @@
   /* ========== Tag ========== */
   .tag {
     display: inline-block;
-    background: var(--tag-bg);    /* 实色！不要 rgba */
+    background: var(--tag-bg);    /* solid color only — no rgba */
     color: var(--brand);
     font-size: 9pt;
     font-weight: 500;
@@ -233,9 +245,9 @@
     margin-right: 3pt;
   }
 
-  /* ========== Callout / 강조块 ========== */
-  /* 参考 resume.html .team-culture：透明底 + 单左侧 brand 竖条。
-     不做容器也不做圆角，气质是"一条旁注"而不是"一个卡片"。 */
+  /* ========== Callout / accent block ========== */
+  /* Refs resume.html .team-culture: transparent base + single brand bar on left.
+     No container, no border-radius — feels like a margin note, not a card. */
   .callout {
     background: transparent;
     border-left: 1.8pt solid var(--brand);
@@ -300,9 +312,9 @@
 <!-- ========== HEADER ========== -->
 <div class="header">
   <div class="title-block">
-    <div class="eyebrow">{{EYEBROW · 如 "제품 방안" / "프로젝트 제안" / "실행 요약"}}</div>
-    <h1>{{文档主제목（serif，2 行内，动词+名词结构最好）}}</h1>
-    <div class="subtitle">{{一行副제목 / 一句核心논점}}</div>
+    <div class="eyebrow">{{EYEBROW · 예: "제품 방안" / "프로젝트 제안" / "실행 요약"}}</div>
+    <h1>{{문서 메인 제목 (serif, 2줄 이내, 동사+명사 구조 권장)}}</h1>
+    <div class="subtitle">{{한 줄 부제 / 한 문장 핵심 주장}}</div>
   </div>
   <div class="meta">
     {{작성자명}}<br>
@@ -311,46 +323,46 @@
   </div>
 </div>
 
-<!-- ========== METRICS（可选，3-4 卡最佳） ========== -->
+<!-- ========== METRICS (선택, 3-4개 권장) ========== -->
 <div class="metrics">
   <div class="metric">
     <div class="metric-value">{{숫자}}</div>
-    <div class="metric-label">{{标签설명}}</div>
+    <div class="metric-label">{{라벨 설명}}</div>
   </div>
   <div class="metric">
     <div class="metric-value">{{숫자}}</div>
-    <div class="metric-label">{{标签설명}}</div>
+    <div class="metric-label">{{라벨 설명}}</div>
   </div>
   <div class="metric">
     <div class="metric-value">{{숫자}}</div>
-    <div class="metric-label">{{标签설명}}</div>
+    <div class="metric-label">{{라벨 설명}}</div>
   </div>
   <div class="metric">
     <div class="metric-value">{{숫자}}</div>
-    <div class="metric-label">{{标签설명}}</div>
+    <div class="metric-label">{{라벨 설명}}</div>
   </div>
 </div>
 
-<!-- ========== LEAD（도입부，一段） ========== -->
+<!-- ========== LEAD (도입부, 한 단락) ========== -->
 <p class="lead">
-  {{一段 40-60 字的核心논점도입부。用「<span class="hl">키워드</span>」강조重点。这段定调整个文档。}}
+  {{40~60자 핵심 주장 도입부. 「<span class="hl">키워드</span>」로 핵심 강조. 이 단락이 문서 전체 톤을 결정함.}}
 </p>
 
-<!-- ========== 核心내용（两栏） ========== -->
+<!-- ========== 핵심 내용 (2열) ========== -->
 <div class="two-col">
   <section>
-    <h2>{{section 제목 1}}</h2>
-    <p>{{这里写 1-2 句단락，展开논점。}}</p>
+    <h2>{{섹션 제목 1}}</h2>
+    <p>{{여기에 1~2문장 단락 작성. 논점 전개.}}</p>
     <ul class="dash">
-      <li>{{짧은 bullet：데이터/관찰/판단}}</li>
-      <li>{{짧은 bullet：带 <span class="hl">关键숫자</span> 的논거}}</li>
+      <li>{{짧은 bullet: 데이터 / 관찰 / 판단}}</li>
+      <li>{{짧은 bullet: <span class="hl">핵심 숫자</span> 포함 논거}}</li>
       <li>{{짧은 bullet}}</li>
     </ul>
   </section>
 
   <section>
-    <h2>{{section 제목 2}}</h2>
-    <p>{{1-2 句단락。}}</p>
+    <h2>{{섹션 제목 2}}</h2>
+    <p>{{1~2문장 단락.}}</p>
     <ul class="dash">
       <li>{{짧은 bullet}}</li>
       <li>{{짧은 bullet}}</li>
@@ -359,37 +371,37 @@
   </section>
 </div>
 
-<!-- ========== Timeline / Roadmap（可选） ========== -->
+<!-- ========== Timeline / Roadmap (선택) ========== -->
 <section>
-  <h2>时间线 / 路线图<span class="sub">（适用于方案类文档）</span></h2>
+  <h2>타임라인 / 로드맵<span class="sub">(방안 / 제안 문서용)</span></h2>
   <div class="timeline">
     <div class="tl-step">
-      <div class="tl-year">阶段 1</div>
-      <div class="tl-head">{{阶段제목}}</div>
-      <div class="tl-body">{{一句解释}}</div>
+      <div class="tl-year">단계 1</div>
+      <div class="tl-head">{{단계 제목}}</div>
+      <div class="tl-body">{{한 문장 설명}}</div>
     </div>
     <div class="tl-step">
-      <div class="tl-year">阶段 2</div>
-      <div class="tl-head">{{阶段제목}}</div>
-      <div class="tl-body">{{一句解释}}</div>
+      <div class="tl-year">단계 2</div>
+      <div class="tl-head">{{단계 제목}}</div>
+      <div class="tl-body">{{한 문장 설명}}</div>
     </div>
     <div class="tl-step">
-      <div class="tl-year">阶段 3</div>
-      <div class="tl-head">{{阶段제목}}</div>
-      <div class="tl-body">{{一句解释}}</div>
+      <div class="tl-year">단계 3</div>
+      <div class="tl-head">{{단계 제목}}</div>
+      <div class="tl-body">{{한 문장 설명}}</div>
     </div>
   </div>
 </section>
 
-<!-- ========== CALLOUT（可选）========== -->
+<!-- ========== CALLOUT (선택) ========== -->
 <div class="callout">
-  {{关键引用 / 重要提示 / 核心 takeaway。比본문更需要引起注意的내용放这里。}}
+  {{핵심 인용 / 중요 안내 / 핵심 takeaway. 본문보다 더 주목을 끌어야 할 내용을 여기에 배치.}}
 </div>
 
 <!-- ========== FOOTER ========== -->
 <div class="footer">
-  <span>{{机密级别 / 内部 / 公开 等}}</span>
-  <span>{{页码 / 联系方式}}</span>
+  <span>{{기밀 등급 / 내부 / 공개 등}}</span>
+  <span>{{페이지 / 연락처}}</span>
 </div>
 
 </body>

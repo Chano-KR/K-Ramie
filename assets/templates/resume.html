@@ -2,12 +2,23 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{姓名}} · 简历</title>
-<meta name="author" content="{{姓名}}">
+<title>{{이름}} · 이력서</title>
+<meta name="author" content="{{이름}}">
 <meta name="description" content="{{요약}}">
 <meta name="keywords" content="{{키워드}}">
 <meta name="generator" content="K-Ramie">
 <style>
+  @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  /* KRAMIE-FONTS */
+  @font-face { font-family: "Chosunilbo Myungjo"; src: url("../fonts/ChosunilboMyungjo/ChosunNm.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro1.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro2.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro3.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Medium.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Bold.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Pretendard"; src: url("../fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations"); font-weight: 100 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "D2Coding"; src: url("../fonts/D2Coding/D2Coding-Ver1.3.2-20180524.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
   /* W04 / regular face for body text */
   /* W05 / medium face for headings (no synthetic bold) */
   @page {
@@ -485,13 +496,13 @@
 <body>
 
 <!-- =====================================================================
-     使用설명：
- - 所有 {{变量}} 替换为实际내용
- - 删除不适用的 section（如无开源/AI판단/对外영향力）
- - 프로젝트可加减，每个严格遵守 角色/动作/结果 三段式
- - 改完验证：必须 2 页
+     사용 설명:
+ - 모든 {{변수}}를 실제 내용으로 교체
+ - 해당 없는 section 삭제 (오픈소스 / AI 판단 / 외부 영향력 등 없으면)
+ - 프로젝트 가감 가능. 각 프로젝트는 역할 / 행동 / 결과 3단 구조 엄수
+ - 수정 후 검증: 반드시 2페이지
        python3 -c "from weasyprint import HTML; HTML('resume.html').write_pdf('out.pdf')"
- - 내용策略详见 references/writing.md
+ - 내용 전략은 references/writing.md 참조
      ===================================================================== -->
 
 
@@ -499,110 +510,110 @@
 
 <div class="header">
   <div>
-    <div class="name serif">{{姓名}}<span class="alias">{{别名/英文名}}</span></div>
+    <div class="name serif">{{이름}}<span class="alias">{{별명 / 영문명}}</span></div>
   </div>
   <div class="contact">
-    <span style="color: var(--brand); font-size: 10.5pt; font-weight: 500;">{{岗位定位，如"AI / Agent 工程"}}</span>　·　<a href="{{GITHUB_URL}}">GitHub @{{GITHUB_ID}}</a>　·　<a href="{{X_URL}}">X @{{X_ID}}</a>　·　<a href="tel:{{PHONE}}">{{PHONE}}</a>　·　<a href="mailto:{{EMAIL}}">{{EMAIL}}</a>　·　{{年龄}} 岁在{{城市}}
+    <span style="color: var(--brand); font-size: 10.5pt; font-weight: 500;">{{포지션, 예: "AI / Agent 엔지니어"}}</span>　·　<a href="{{GITHUB_URL}}">GitHub @{{GITHUB_ID}}</a>　·　<a href="{{X_URL}}">X @{{X_ID}}</a>　·　<a href="tel:{{PHONE}}">{{PHONE}}</a>　·　<a href="mailto:{{EMAIL}}">{{EMAIL}}</a>　·　{{나이}}세 {{도시}} 거주
   </div>
 </div>
 
-<!-- 4 个最强的숫자标签 -->
+<!-- 가장 강력한 4개 숫자 태그 -->
 <div class="metrics">
-  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
-  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
-  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
-  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
+  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{단위}}</span></span><span class="metric-label">{{라벨}}</span></div>
+  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{단위}}</span></span><span class="metric-label">{{라벨}}</span></div>
+  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{단위}}</span></span><span class="metric-label">{{라벨}}</span></div>
+  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{단위}}</span></span><span class="metric-label">{{라벨}}</span></div>
 </div>
 
 <section>
-  <div class="section-title">个人简介</div>
+  <div class="section-title">자기 소개</div>
   <div class="summary">
-    {{80 字以内。建议结构：现任职位 + 级别 + 时长。团队构成（人数、梯队、协作方）。长期演进方向。核心沉淀领域（4-6 个方向）。}}
+    {{80자 이내. 권장 구조: 현재 직책 + 직급 + 재직 기간. 팀 구성(인원, 직급 분포, 협업 대상). 장기 발전 방향. 핵심 누적 영역 (4~6개).}}
   </div>
 </section>
 
 <section>
-  <div class="section-title">工作经历<span class="sub">{{起始时间}} - 至今（{{关键里程碑}}）</span></div>
+  <div class="section-title">경력<span class="sub">{{시작일}} - 현재 ({{핵심 마일스톤}})</span></div>
 
-  <!-- Timeline 3 步：长期演进信号 -->
+  <!-- Timeline 3단계: 장기 발전 신호 -->
   <div class="timeline">
     <div class="tl-step">
-      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段제목}}</div></div>
-      <div class="tl-body">{{一句解释这一步的意义}}</div>
+      <div class="tl-top"><div class="tl-year serif">{{연도}}</div><div class="tl-head">{{단계 제목}}</div></div>
+      <div class="tl-body">{{이 단계의 의미를 한 문장으로 설명}}</div>
     </div>
     <div class="tl-step">
-      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段제목}}</div></div>
-      <div class="tl-body">{{一句解释这一步的意义}}</div>
+      <div class="tl-top"><div class="tl-year serif">{{연도}}</div><div class="tl-head">{{단계 제목}}</div></div>
+      <div class="tl-body">{{이 단계의 의미를 한 문장으로 설명}}</div>
     </div>
     <div class="tl-step">
-      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段제목}}</div></div>
-      <div class="tl-body">{{一句解释这一步的意义}}</div>
+      <div class="tl-top"><div class="tl-year serif">{{연도}}</div><div class="tl-head">{{단계 제목}}</div></div>
+      <div class="tl-body">{{이 단계의 의미를 한 문장으로 설명}}</div>
     </div>
   </div>
 
-  <!-- 프로젝트模板 - 重复此块 3-5 次 -->
+  <!-- 프로젝트 템플릿 - 이 블록을 3~5회 반복 -->
   <div class="project">
     <div class="proj-head">
-      <span class="proj-name serif">{{프로젝트名}}</span>
+      <span class="proj-name serif">{{프로젝트명}}</span>
       <span class="proj-kind">· {{프로젝트유형}}</span>
-      <span class="proj-role">{{角色定位，如"方向主导"}}</span>
+      <span class="proj-role">{{역할, 예: "방향 주도"}}</span>
     </div>
     <div class="proj-lines">
       <div class="proj-row">
-        <div class="proj-label">角色</div>
-        <div class="proj-text">{{~60 字：프로젝트是什么 + 为什么做 + 你的位置}}</div>
+        <div class="proj-label">역할</div>
+        <div class="proj-text">{{~60자: 프로젝트는 무엇인지 + 왜 했는지 + 본인의 포지션}}</div>
       </div>
       <div class="proj-row">
-        <div class="proj-label">动作</div>
-        <div class="proj-text">{{~80 字：技术方案 / 关键决策 / 执行路径}}</div>
+        <div class="proj-label">행동</div>
+        <div class="proj-text">{{~80자: 기술 방안 / 핵심 의사결정 / 실행 경로}}</div>
       </div>
       <div class="proj-row">
-        <div class="proj-label">结果</div>
-        <div class="proj-text">{{~100 字：데이터为王。<span class="hl">关键숫자</span> 강조 1-2 处。}}</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="project">
-    <div class="proj-head">
-      <span class="proj-name serif">{{프로젝트名}}</span>
-      <span class="proj-kind">· {{프로젝트유형}}</span>
-      <span class="proj-role">{{角色定位}}</span>
-    </div>
-    <div class="proj-lines">
-      <div class="proj-row">
-        <div class="proj-label">角色</div>
-        <div class="proj-text">{{~60 字}}</div>
-      </div>
-      <div class="proj-row">
-        <div class="proj-label">动作</div>
-        <div class="proj-text">{{~80 字}}</div>
-      </div>
-      <div class="proj-row">
-        <div class="proj-label">结果</div>
-        <div class="proj-text">{{~100 字，含 <span class="hl">关键숫자</span>}}</div>
+        <div class="proj-label">결과</div>
+        <div class="proj-text">{{~100자: 데이터가 핵심. <span class="hl">핵심 숫자</span> 1~2개 강조.}}</div>
       </div>
     </div>
   </div>
 
   <div class="project">
     <div class="proj-head">
-      <span class="proj-name serif">{{프로젝트名}}</span>
+      <span class="proj-name serif">{{프로젝트명}}</span>
       <span class="proj-kind">· {{프로젝트유형}}</span>
-      <span class="proj-role">{{角色}}</span>
+      <span class="proj-role">{{역할}}</span>
     </div>
     <div class="proj-lines">
       <div class="proj-row">
-        <div class="proj-label">角色</div>
-        <div class="proj-text">{{프로젝트背景和定位}}</div>
+        <div class="proj-label">역할</div>
+        <div class="proj-text">{{~60자}}</div>
       </div>
       <div class="proj-row">
-        <div class="proj-label">动作</div>
-        <div class="proj-text">{{执行路径}}</div>
+        <div class="proj-label">행동</div>
+        <div class="proj-text">{{~80자}}</div>
       </div>
       <div class="proj-row">
-        <div class="proj-label">结果</div>
-        <div class="proj-text">{{可量化结果，含 <span class="hl">关键숫자</span>}}</div>
+        <div class="proj-label">결과</div>
+        <div class="proj-text">{{~100자, <span class="hl">핵심 숫자</span> 포함}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="proj-head">
+      <span class="proj-name serif">{{프로젝트명}}</span>
+      <span class="proj-kind">· {{프로젝트유형}}</span>
+      <span class="proj-role">{{역할}}</span>
+    </div>
+    <div class="proj-lines">
+      <div class="proj-row">
+        <div class="proj-label">역할</div>
+        <div class="proj-text">{{프로젝트 배경과 포지션}}</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">행동</div>
+        <div class="proj-text">{{실행 경로}}</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">결과</div>
+        <div class="proj-text">{{정량화 가능한 결과, <span class="hl">핵심 숫자</span> 포함}}</div>
       </div>
     </div>
   </div>
@@ -612,155 +623,155 @@
 <!-- ═══════════ PAGE 2 ═══════════ -->
 
 <section class="page-break">
-  <div class="section-title">开源프로젝트 &amp; 独立开发者<span class="sub">{{时间跨度}} · {{一句副제목}}</span></div>
+  <div class="section-title">오픈소스 프로젝트 &amp; 독립 개발자<span class="sub">{{기간}} · {{한 문장 부제}}</span></div>
 
   <div class="os-intro">
-    <span class="hl">{{一句自我定位}}</span>，{{简述开发者身份：设计审美 / 独立完成流程 / 跨语言实战 / 用户反馈}}。GitHub 累计 <span class="strong">{{STARS_TOTAL}} stars · {{FORKS_TOTAL}} forks · {{FOLLOWERS_TOTAL}} followers</span>。
+    <span class="hl">{{한 문장 자기 포지셔닝}}</span>, {{개발자 정체성 약술: 디자인 감각 / 독립 완수 / 다중 언어 실전 / 사용자 피드백}}. GitHub 누적 <span class="strong">{{STARS_TOTAL}} stars · {{FORKS_TOTAL}} forks · {{FOLLOWERS_TOTAL}} followers</span>.
   </div>
 
   <div class="os-grid">
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
-      <span class="os-desc">{{语言 + 核心定位 + 平台}}</span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트명}}</a></span>
+      <span class="os-desc">{{언어 + 핵심 포지션 + 플랫폼}}</span>
       <span class="os-star big">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트명}}</a></span>
       <span class="os-desc">{{설명}}</span>
       <span class="os-star big">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트명}}</a></span>
       <span class="os-desc">{{설명}}</span>
       <span class="os-star">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트명}}</a></span>
       <span class="os-desc">{{설명}}</span>
       <span class="os-star">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트명}}</a></span>
       <span class="os-desc">{{설명}}</span>
       <span class="os-star">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트명}}</a></span>
       <span class="os-desc">{{설명}}</span>
       <span class="os-star">★ {{STARS}}</span>
     </div>
   </div>
 
   <div class="os-highlight">
-    <span class="tag">{{亮点 TAG}}</span>{{这个프로젝트的独特故事：开源时机 / 传播范围 / 知名人物推荐等}}
+    <span class="tag">{{하이라이트 TAG}}</span>{{이 프로젝트만의 특별한 스토리: 오픈소스 타이밍 / 확산 범위 / 유명인 추천 등}}
   </div>
 </section>
 
 <section>
-  <div class="section-title">AI 판단与行动</div>
+  <div class="section-title">AI 판단 및 행동</div>
   <div class="convictions">
     <div class="conv-card">
-      <div class="conv-head"><span class="year">{{时间}}</span>{{事件제목}}</div>
+      <div class="conv-head"><span class="year">{{기간}}</span>{{이벤트 제목}}</div>
       <div class="conv-body">
-        {{具体做了什么판단或行动，为什么证明판단力}}
+        {{구체적으로 어떤 판단/행동을 했는지, 그것이 왜 판단력을 증명하는지}}
       </div>
     </div>
     <div class="conv-card">
-      <div class="conv-head"><span class="year">{{时间}}</span>{{事件제목}}</div>
+      <div class="conv-head"><span class="year">{{기간}}</span>{{이벤트 제목}}</div>
       <div class="conv-body">
-        {{具体做了什么판단或行动}}
+        {{구체적으로 어떤 판단/행동을 했는지}}
       </div>
     </div>
     <div class="conv-card">
-      <div class="conv-head"><span class="year">{{时间}}</span>{{事件제목}}</div>
+      <div class="conv-head"><span class="year">{{기간}}</span>{{이벤트 제목}}</div>
       <div class="conv-body">
-        {{具体做了什么판단或行动}}
+        {{구체적으로 어떤 판단/행동을 했는지}}
       </div>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="section-title">对外영향力</div>
+  <div class="section-title">외부 영향력</div>
 
   <div class="handle-strip">
-    <span class="handle serif">{{平台}} · <a href="{{URL}}">@{{HANDLE}}</a></span>
-    <span class="follower">{{粉丝数}} 粉丝</span>
-    <span class="desc">{{博客 / 周刊 / 其他내용产品简介}}</span>
+    <span class="handle serif">{{플랫폼}} · <a href="{{URL}}">@{{HANDLE}}</a></span>
+    <span class="follower">{{팔로워 수}} 팔로워</span>
+    <span class="desc">{{블로그 / 뉴스레터 / 기타 콘텐츠 제품 소개}}</span>
   </div>
 
   <div class="impact-grid">
     <div>
-      <div class="inf-block-title">代表性技术长文<span class="small">{{副제목}}</span></div>
+      <div class="inf-block-title">대표 기술 장문<span class="small">{{부제}}</span></div>
       <div class="art-row">
         <div class="art-header">
-          <a class="art-title" href="{{URL}}">《{{文章제목}}》</a>
-          <span class="art-date">{{日期}}</span>
+          <a class="art-title" href="{{URL}}">《{{글 제목}}》</a>
+          <span class="art-date">{{날짜}}</span>
         </div>
-        <div class="art-stats">{{浏览量 / 赞数 / 영향力指标}}</div>
+        <div class="art-stats">{{조회수 / 좋아요 / 영향력 지표}}</div>
       </div>
       <div class="art-row">
         <div class="art-header">
-          <a class="art-title" href="{{URL}}">《{{文章제목}}》</a>
-          <span class="art-date">{{日期}}</span>
+          <a class="art-title" href="{{URL}}">《{{글 제목}}》</a>
+          <span class="art-date">{{날짜}}</span>
         </div>
-        <div class="art-stats">{{浏览量 / 赞数}}</div>
+        <div class="art-stats">{{조회수 / 좋아요}}</div>
       </div>
     </div>
 
     <div>
-      <div class="inf-block-title">受邀演讲<span class="small">{{副제목}}</span></div>
+      <div class="inf-block-title">초청 강연<span class="small">{{부제}}</span></div>
       <div class="talk-row">
         <div>
-          <div class="talk-title">《{{演讲제목}}》</div>
-          <div class="talk-venue">{{主办方 / 地点}}</div>
+          <div class="talk-title">《{{강연 제목}}》</div>
+          <div class="talk-venue">{{주최 / 장소}}</div>
         </div>
-        <div class="talk-date">{{日期}}</div>
+        <div class="talk-date">{{날짜}}</div>
       </div>
       <div class="talk-row">
         <div>
-          <div class="talk-title">《{{演讲제목}}》</div>
-          <div class="talk-venue">{{主办方 / 地点}}</div>
+          <div class="talk-title">《{{강연 제목}}》</div>
+          <div class="talk-venue">{{주최 / 장소}}</div>
         </div>
-        <div class="talk-date">{{日期}}</div>
+        <div class="talk-date">{{날짜}}</div>
       </div>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="section-title">核心能力</div>
-  <!-- 5 项固定结构，每项至少 1 处橙色강조 -->
+  <div class="section-title">핵심 역량</div>
+  <!-- 5개 고정 구조, 각 항목 최소 1개의 강조 포인트 -->
   <div class="skill-row">
-    <div class="skill-label">{{能力 1<br>标签}}</div>
-    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-label">{{역량 1<br>라벨}}</div>
+    <div class="skill-body">{{설명. 최소 <span class="em-brand">1개 강조</span>}}</div>
   </div>
   <div class="skill-row">
-    <div class="skill-label">{{能力 2<br>标签}}</div>
-    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-label">{{역량 2<br>라벨}}</div>
+    <div class="skill-body">{{설명. 최소 <span class="em-brand">1개 강조</span>}}</div>
   </div>
   <div class="skill-row">
-    <div class="skill-label">{{能力 3<br>标签}}</div>
-    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-label">{{역량 3<br>라벨}}</div>
+    <div class="skill-body">{{설명. 최소 <span class="em-brand">1개 강조</span>}}</div>
   </div>
   <div class="skill-row">
-    <div class="skill-label">{{能力 4<br>标签}}</div>
-    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-label">{{역량 4<br>라벨}}</div>
+    <div class="skill-body">{{설명. 최소 <span class="em-brand">1개 강조</span>}}</div>
   </div>
   <div class="skill-row">
-    <div class="skill-label">{{能力 5<br>标签}}</div>
-    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-label">{{역량 5<br>라벨}}</div>
+    <div class="skill-body">{{설명. 최소 <span class="em-brand">1개 강조</span>}}</div>
   </div>
 </section>
 
 <section class="no-break">
-  <div class="section-title">教育背景</div>
+  <div class="section-title">학력</div>
   <div class="edu-row">
     <div>
-      <span class="school serif">{{学校}}</span>
-      <span class="major">　· {{学院}} · {{专业}} · {{一句판단性설명，如"放弃保研直接就业"}}</span>
+      <span class="school serif">{{학교}}</span>
+      <span class="major">　· {{단과대}} · {{전공}} · {{한 문장 판단성 설명, 예: "대학원 진학 포기 후 즉시 취업"}}</span>
     </div>
-    <div class="date">{{起止时间}}</div>
+    <div class="date">{{재학 기간}}</div>
   </div>
 </section>
 

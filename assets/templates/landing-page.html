@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- ==================================================================
-     LANDING PAGE · 中文 · parchment design system
+     LANDING PAGE · Korean · K-Ramie parchment design system
      Screen-first product landing page with interactive gallery
      Sections: Hero · Gallery · Features · Principles · Pricing · FAQ · Footer
      No PDF output — designed for browser delivery via Vercel / Netlify / static host
@@ -46,6 +46,17 @@
 }
 </script>
 <style>
+  @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  /* KRAMIE-FONTS */
+  @font-face { font-family: "Chosunilbo Myungjo"; src: url("../fonts/ChosunilboMyungjo/ChosunNm.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro1.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro2.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro3.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Medium.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Bold.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Pretendard"; src: url("../fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations"); font-weight: 100 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "D2Coding"; src: url("../fonts/D2Coding/D2Coding-Ver1.3.2-20180524.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
 /* ========== Tokens ========== */
 
 :root {
@@ -931,7 +942,7 @@ footer.foot {
         <p class="title" data-gallery-title></p>
         <p class="line" data-gallery-line></p>
       </div>
-      <div class="gallery-tabs" aria-label="选择截图">
+      <div class="gallery-tabs" aria-label="스크린샷 선택">
         <!-- {{GALLERY_TABS}} -->
       </div>
     </div>
@@ -987,13 +998,13 @@ footer.foot {
     <dl class="faq">
       <!-- {{FAQ_PAIRS}} — repeat per question:
       <div class="faq-pair">
-        <dt>问题？</dt>
-        <dd>回答。</dd>
+        <dt>질문?</dt>
+        <dd>답변.</dd>
       </div>
       -->
     </dl>
-    <!-- {{FAQ_TAIL}} — 可选的收尾단락，例如：
-    <p class="faq-tail">更多问题？请访问<a href="/help">帮助页面</a>。</p>
+    <!-- {{FAQ_TAIL}} — 선택적 마무리 단락, 예:
+    <p class="faq-tail">추가 질문? <a href="/help">도움말 페이지</a>를 방문하세요.</p>
     -->
   </section>
 
@@ -1006,12 +1017,12 @@ footer.foot {
     </div>
     <div class="colophon">
       <div class="links">
-        <!-- {{FOOTER_LINKS}} — 居中点分隔链接，例如：
+        <!-- {{FOOTER_LINKS}} — 가운데 점으로 구분된 링크, 예:
         <a href="https://x.com/..." target="_blank" rel="noopener">Twitter</a> &middot;
-        <a href="mailto:...">邮箱</a> &middot;
-        <a href="/help">帮助</a> &middot;
-        <a href="/terms">条款</a> &middot;
-        <a href="/privacy">隐私</a>
+        <a href="mailto:...">이메일</a> &middot;
+        <a href="/help">도움말</a> &middot;
+        <a href="/terms">약관</a> &middot;
+        <a href="/privacy">개인정보</a>
         -->
       </div>
       <p class="ethos">{{FOOTER_ETHOS}}</p>

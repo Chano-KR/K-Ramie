@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <!-- ==================================================================
      CHANGELOG TEMPLATE · parchment design system
-     1-2 页 A4 版本更新日志 / Release Notes
-     结构：版本제목 -> Breaking -> Features -> Fixes -> 致谢
-     遵循 tw93/Mole release note 格式
+     1-2페이지 A4 버전 업데이트 로그 / Release Notes
+     구조: 버전 제목 -> Breaking -> Features -> Fixes -> 감사
+     tw93/Mole release note 형식 준수
      ================================================================== -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{프로젝트名}} · {{版本号}} 更新日志</title>
+<title>{{프로젝트명}} · {{버전}} 업데이트 로그</title>
 <meta name="author" content="{{작성자}}">
 <meta name="description" content="{{요약}}">
 <meta name="keywords" content="{{키워드}}">
 <meta name="generator" content="K-Ramie">
 <style>
+  @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  /* KRAMIE-FONTS */
+  @font-face { font-family: "Chosunilbo Myungjo"; src: url("../fonts/ChosunilboMyungjo/ChosunNm.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro1.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro2.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro3.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Medium.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Bold.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Pretendard"; src: url("../fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations"); font-weight: 100 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "D2Coding"; src: url("../fonts/D2Coding/D2Coding-Ver1.3.2-20180524.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
   /* Regular weight */
   /* Bold weight - W05 for all bold variants */
   @page {
@@ -193,65 +204,65 @@
 
 <!-- ========== VERSION HEADER ========== -->
 <div class="version-header">
-  <div class="version-logo">{{프로젝트名}}</div>
-  <div class="version-title">{{版本号}} {{版本명칭}}</div>
-  <div class="version-tagline">{{一句话版本亮点}}</div>
-  <div class="version-date">{{发布日期}}</div>
+  <div class="version-logo">{{프로젝트명}}</div>
+  <div class="version-title">{{버전}} {{버전 별칭}}</div>
+  <div class="version-tagline">{{한 문장 버전 하이라이트}}</div>
+  <div class="version-date">{{릴리스 날짜}}</div>
 </div>
 
-<!-- ========== CHANGELOG (英文) ========== -->
+<!-- ========== CHANGELOG (English) ========== -->
 <h2>Changelog</h2>
 
 <h3>Breaking Changes</h3>
 <ol class="changes">
-  <li><span class="tag breaking">Breaking</span> {{破坏性变更설명}}</li>
+  <li><span class="tag breaking">Breaking</span> {{Breaking change 설명}}</li>
 </ol>
 
 <h3>Features</h3>
 <ol class="changes">
-  <li>{{新功能 1：一句话설명}}</li>
-  <li>{{新功能 2：一句话설명}}</li>
-  <li>{{新功能 3：一句话설명}}</li>
+  <li>{{New feature 1: one-line 설명}}</li>
+  <li>{{New feature 2: one-line 설명}}</li>
+  <li>{{New feature 3: one-line 설명}}</li>
 </ol>
 
 <h3>Fixes</h3>
 <ol class="changes">
-  <li>{{修复 1：一句话설명}}</li>
-  <li>{{修复 2：一句话설명}}</li>
-  <li>{{修复 3：一句话설명}}</li>
+  <li>{{Fix 1: one-line 설명}}</li>
+  <li>{{Fix 2: one-line 설명}}</li>
+  <li>{{Fix 3: one-line 설명}}</li>
 </ol>
 
-<!-- ========== 更新日志 (中文) ========== -->
-<h2>更新日志</h2>
+<!-- ========== 업데이트 로그 (한국어) ========== -->
+<h2>업데이트 로그</h2>
 
-<h3>破坏性变更</h3>
+<h3>주요 변경</h3>
 <ol class="changes">
-  <li><span class="tag breaking">Breaking</span> {{同上对应的中文설명}}</li>
+  <li><span class="tag breaking">Breaking</span> {{위와 대응하는 한국어 설명}}</li>
 </ol>
 
-<h3>新功能</h3>
+<h3>새 기능</h3>
 <ol class="changes">
-  <li>{{对应中文설명}}</li>
-  <li>{{对应中文설명}}</li>
-  <li>{{对应中文설명}}</li>
+  <li>{{대응 한국어 설명}}</li>
+  <li>{{대응 한국어 설명}}</li>
+  <li>{{대응 한국어 설명}}</li>
 </ol>
 
-<h3>修复</h3>
+<h3>수정</h3>
 <ol class="changes">
-  <li>{{对应中文설명}}</li>
-  <li>{{对应中文설명}}</li>
-  <li>{{对应中文설명}}</li>
+  <li>{{대응 한국어 설명}}</li>
+  <li>{{대응 한국어 설명}}</li>
+  <li>{{대응 한국어 설명}}</li>
 </ol>
 
-<!-- ========== THANKS (可选) ========== -->
+<!-- ========== 감사 (선택) ========== -->
 <div class="thanks">
-  <div class="thanks-label">致谢</div>
-  {{感谢贡献者，格式如："感谢 @user1、@user2 的贡献。"}}
+  <div class="thanks-label">감사</div>
+  {{기여자 감사, 형식 예: "@user1, @user2의 기여에 감사드립니다."}}
 </div>
 
 <!-- ========== FOOTER ========== -->
 <div class="changelog-footer">
-  {{프로젝트一句话설명}}<br>
+  {{프로젝트 한 문장 설명}}<br>
   {{프로젝트 URL}}
 </div>
 

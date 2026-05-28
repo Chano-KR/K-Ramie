@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <!-- ==================================================================
      LETTER TEMPLATE · parchment design system
-     A4 正式信件 / 备忘录 / 推荐信 / 辞职信 / 个人声明
-     特点：极简，serif 主导，字号稍大，段距宽松
+     A4 정식 서신 / 메모 / 추천서 / 사직서 / 개인 성명
+     특징: 극도로 미니멀, serif 주도, 글자 크기 약간 크게, 단락 간격 여유
      ================================================================== -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{信件主题}}</title>
+<title>{{서신 주제}}</title>
 <meta name="author" content="{{작성자}}">
 <meta name="description" content="{{요약}}">
 <meta name="keywords" content="{{키워드}}">
 <meta name="generator" content="K-Ramie">
 <style>
+  @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  /* KRAMIE-FONTS */
+  @font-face { font-family: "Chosunilbo Myungjo"; src: url("../fonts/ChosunilboMyungjo/ChosunNm.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro1.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro2.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Bareun Batang"; src: url("../fonts/BareunBatang/BareunBatangPro3.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Medium.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "KoPub World Batang"; src: url("../fonts/KoPubWorldBatang/KoPubWorld%20Batang_Pro%20Bold.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Pretendard"; src: url("../fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations"); font-weight: 100 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "D2Coding"; src: url("../fonts/D2Coding/D2Coding-Ver1.3.2-20180524.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
   /* Regular weight */
   /* Bold weight - W05 for all bold variants */
   @page {
@@ -50,7 +61,7 @@
     letter-spacing: 0.3pt;
   }
 
-  /* ========== LETTERHEAD 信头 ========== */
+  /* ========== LETTERHEAD 편지 머리글 ========== */
   .letterhead {
     text-align: right;
     margin-bottom: 30pt;
@@ -136,7 +147,7 @@
     text-align: justify;
     text-justify: inter-ideograph;
     line-height: 1.55;
-    text-indent: 2em;    /* 中文단락首行缩进 */
+    text-indent: 2em;    /* 한국어 단락 첫 줄 들여쓰기 */
   }
   .body-content p:first-child { text-indent: 2em; }
   .body-content p.no-indent { text-indent: 0; }
@@ -182,8 +193,8 @@
     font-weight: 500;
   }
 
-  /* ========== 一些特殊变体 ========== */
-  /* 如果是 memo（备忘录），用 sans 字体，去掉首行缩进 */
+  /* ========== 특수 변형 ========== */
+  /* memo (메모)인 경우 sans 폰트 사용, 첫 줄 들여쓰기 제거 */
   body.memo {
     font-family: var(--sans);
     line-height: 1.55;
@@ -227,73 +238,73 @@
 </head>
 <body>
 
-<!-- ========== LETTERHEAD（寄件人） ========== -->
+<!-- ========== LETTERHEAD (발신자) ========== -->
 <div class="letterhead">
-  <div class="sender-name">{{寄件人姓名}}</div>
-  <div>{{寄件人地址 / 部门 / 机构}}</div>
-  <div>{{电话}}　·　<a href="mailto:{{EMAIL}}">{{EMAIL}}</a></div>
+  <div class="sender-name">{{발신자 성명}}</div>
+  <div>{{발신자 주소 / 부서 / 기관}}</div>
+  <div>{{전화}}　·　<a href="mailto:{{EMAIL}}">{{EMAIL}}</a></div>
 </div>
 
-<!-- ========== 日期 ========== -->
-<div class="date">{{日期 如 2026 年 4 月 18 日}}</div>
+<!-- ========== 날짜 ========== -->
+<div class="date">{{날짜 예: 2026년 4월 18일}}</div>
 
-<!-- ========== 收件人 ========== -->
+<!-- ========== 수신자 ========== -->
 <div class="recipient">
-  <div class="to">致</div>
-  <div class="name">{{收件人姓名 / 称谓}}</div>
-  <div class="org">{{收件人机构 / 部门}}</div>
+  <div class="to">받는 사람</div>
+  <div class="name">{{수신자 성명 / 호칭}}</div>
+  <div class="org">{{수신자 기관 / 부서}}</div>
 </div>
 
-<!-- ========== 主题 ========== -->
+<!-- ========== 주제 ========== -->
 <div class="subject">
-  <div class="label">关于</div>
-  <div class="title">{{信件主题，一句话说清}}</div>
+  <div class="label">제목</div>
+  <div class="title">{{서신 주제, 한 문장으로 명확히}}</div>
 </div>
 
-<!-- ========== 称呼 ========== -->
-<div class="salutation">{{称呼 如 "尊敬的 XX 先生：" / "Dear XX,"}}</div>
+<!-- ========== 호칭 ========== -->
+<div class="salutation">{{호칭 예: "존경하는 XX님께:" / "Dear XX,"}}</div>
 
 <!-- ========== 본문 ========== -->
 <div class="body-content">
 
 <p>
-{{第一段：破题。설명写这封信的缘由和核心意图。
-不要绕弯，1-2 句话让读者知道你要说什么。}}
+{{1단락: 도입. 이 서신을 쓰는 이유와 핵심 의도를 설명.
+우회하지 말고 1~2문장으로 독자에게 요점 전달.}}
 </p>
 
 <p>
-{{第二段：展开。给出背景、理由、논거。
-如有 <span class="hl">关键信息</span> 可用강조突出。}}
+{{2단락: 전개. 배경, 이유, 논거 제시.
+<span class="hl">핵심 정보</span>는 강조 처리.}}
 </p>
 
 <p>
-{{第三段：具体。说清楚你希望对方做什么、
-何时做、怎么联系。让行动有明确出口。}}
+{{3단락: 구체. 상대방에게 원하는 행동, 시점,
+연락 방법을 명확히. 행동에 분명한 출구 제공.}}
 </p>
 
 <p>
-{{第四段（可选）：收尾。表达期待、致谢或礼貌性结束语。}}
+{{4단락 (선택): 마무리. 기대 표현, 감사 인사 또는 정중한 종결.}}
 </p>
 
 </div>
 
-<!-- ========== 敬语 ========== -->
+<!-- ========== 맺음말 ========== -->
 <div class="closing">
   <div class="regards">
-    {{敬语。中文常用 "此致 / 敬礼！"、"顺颂商祺"。英文 "Best regards," / "Sincerely,"}}
+    {{맺음말. 한국어 "안녕히 계십시오." / "감사합니다." / 영문 "Best regards," / "Sincerely,"}}
   </div>
 
-  <div class="signature">{{签名 / 亲笔姓名}}</div>
+  <div class="signature">{{서명 / 친필 성명}}</div>
   <div class="signoff-meta">
-    {{职位 · 部门}}<br>
-    {{日期复写 · 可选}}
+    {{직위 · 부서}}<br>
+    {{날짜 재기재 · 선택}}
   </div>
 </div>
 
-<!-- ========== 附件（可选） ========== -->
+<!-- ========== 첨부 (선택) ========== -->
 <div class="attachments">
-  <span class="label">附件</span>
-  {{附件清单：① 附件名 1 · ② 附件名 2}}
+  <span class="label">첨부</span>
+  {{첨부 목록: ① 첨부 파일명 1 · ② 첨부 파일명 2}}
 </div>
 
 </body>
