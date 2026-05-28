@@ -2,36 +2,20 @@
 <!-- ==================================================================
      CHANGELOG TEMPLATE · parchment design system
      1-2 页 A4 版本更新日志 / Release Notes
-     结构：版本标题 -> Breaking -> Features -> Fixes -> 致谢
+     结构：版本제목 -> Breaking -> Features -> Fixes -> 致谢
      遵循 tw93/Mole release note 格式
      ================================================================== -->
-<html lang="zh-CN">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{项目名}} · {{版本号}} 更新日志</title>
-<meta name="author" content="{{作者}}">
-<meta name="description" content="{{摘要}}">
-<meta name="keywords" content="{{关键词}}">
-<meta name="generator" content="Kami">
+<title>{{프로젝트名}} · {{版本号}} 更新日志</title>
+<meta name="author" content="{{작성자}}">
+<meta name="description" content="{{요약}}">
+<meta name="keywords" content="{{키워드}}">
+<meta name="generator" content="K-Ramie">
 <style>
   /* Regular weight */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
-
   /* Bold weight - W05 for all bold variants */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-
   @page {
     size: A4;
     margin: 20mm 22mm 22mm 22mm;
@@ -51,7 +35,7 @@
     --border:    #e8e6dc;
     --border-soft:#e5e3d8;
     --tag-bg:    #E4ECF5;
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo", "Bareun Batang", "BareunBatang", "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang", "Noto Serif KR", "Source Han Serif K", "Nanum Myeongjo", Georgia, "Iowan Old Style", Palatino, serif;
     --sans: var(--serif);
   }
 
@@ -209,8 +193,8 @@
 
 <!-- ========== VERSION HEADER ========== -->
 <div class="version-header">
-  <div class="version-logo">{{项目名}}</div>
-  <div class="version-title">{{版本号}} {{版本名称}}</div>
+  <div class="version-logo">{{프로젝트名}}</div>
+  <div class="version-title">{{版本号}} {{版本명칭}}</div>
   <div class="version-tagline">{{一句话版本亮点}}</div>
   <div class="version-date">{{发布日期}}</div>
 </div>
@@ -220,21 +204,21 @@
 
 <h3>Breaking Changes</h3>
 <ol class="changes">
-  <li><span class="tag breaking">Breaking</span> {{破坏性变更描述}}</li>
+  <li><span class="tag breaking">Breaking</span> {{破坏性变更설명}}</li>
 </ol>
 
 <h3>Features</h3>
 <ol class="changes">
-  <li>{{新功能 1：一句话描述}}</li>
-  <li>{{新功能 2：一句话描述}}</li>
-  <li>{{新功能 3：一句话描述}}</li>
+  <li>{{新功能 1：一句话설명}}</li>
+  <li>{{新功能 2：一句话설명}}</li>
+  <li>{{新功能 3：一句话설명}}</li>
 </ol>
 
 <h3>Fixes</h3>
 <ol class="changes">
-  <li>{{修复 1：一句话描述}}</li>
-  <li>{{修复 2：一句话描述}}</li>
-  <li>{{修复 3：一句话描述}}</li>
+  <li>{{修复 1：一句话설명}}</li>
+  <li>{{修复 2：一句话설명}}</li>
+  <li>{{修复 3：一句话설명}}</li>
 </ol>
 
 <!-- ========== 更新日志 (中文) ========== -->
@@ -242,21 +226,21 @@
 
 <h3>破坏性变更</h3>
 <ol class="changes">
-  <li><span class="tag breaking">Breaking</span> {{同上对应的中文描述}}</li>
+  <li><span class="tag breaking">Breaking</span> {{同上对应的中文설명}}</li>
 </ol>
 
 <h3>新功能</h3>
 <ol class="changes">
-  <li>{{对应中文描述}}</li>
-  <li>{{对应中文描述}}</li>
-  <li>{{对应中文描述}}</li>
+  <li>{{对应中文설명}}</li>
+  <li>{{对应中文설명}}</li>
+  <li>{{对应中文설명}}</li>
 </ol>
 
 <h3>修复</h3>
 <ol class="changes">
-  <li>{{对应中文描述}}</li>
-  <li>{{对应中文描述}}</li>
-  <li>{{对应中文描述}}</li>
+  <li>{{对应中文설명}}</li>
+  <li>{{对应中文설명}}</li>
+  <li>{{对应中文설명}}</li>
 </ol>
 
 <!-- ========== THANKS (可选) ========== -->
@@ -267,8 +251,8 @@
 
 <!-- ========== FOOTER ========== -->
 <div class="changelog-footer">
-  {{项目一句话描述}}<br>
-  {{项目 URL}}
+  {{프로젝트一句话설명}}<br>
+  {{프로젝트 URL}}
 </div>
 
 </body>

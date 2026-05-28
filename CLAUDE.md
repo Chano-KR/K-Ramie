@@ -1,33 +1,43 @@
-# Kami
+# K-Ramie
 
-Document-generation skill and template system. Editorial HTML templates + PDF/PPTX/PNG build pipeline.
+Korean-first document-generation skill and template system. Editorial HTML templates + PDF/PPTX/PNG build pipeline. Fork of [tw93/Kami](https://github.com/tw93/Kami).
 
-## 启动前
+## Before starting
 
-- 个人/全局规则可放在仓库外；本文件只记录 Kami 项目内的 Claude Code 入口和维护规则。
-- 仓库地图、Working Rules、Current Risk Areas、Verification Details、Release Flow、Fonts 全在 `AGENTS.md`。
-- 模板设计规范看 `references/design.md`，写作规范看 `references/writing.md`，反模式 checklist 看 `references/anti-patterns.md`。
+- Personal/global rules can live outside this repo; this file only records K-Ramie's Claude Code entry points and maintenance rules.
+- Repository map, Working Rules, Current Risk Areas, Verification Details, Release Flow, and Fonts all live in `AGENTS.md`.
+- Template design spec → `references/design.md`. Writing rules → `references/writing.md`. Anti-pattern checklist → `references/anti-patterns.md`. Korean font licensing and roles → `FONTS.md`. Fork sync workflow → `CONTRIBUTING.md`.
 
-## 常用命令
+## Common commands
 
 ```bash
-python3 scripts/build.py                   # 构建所有目标
-python3 scripts/build.py --check           # 快速校验
-python3 scripts/build.py --verify          # 完整验证
-python3 scripts/stabilize.py all --report  # HTML 模板标准化
-python3 scripts/tests/test_build.py        # 测试套件
-bash scripts/ensure-fonts.sh               # 字体恢复（缺字体或字体被截断时）
-bash scripts/package-skill.sh              # 构建 release 压缩包
+python3 scripts/build.py                   # build all targets
+python3 scripts/build.py --check           # quick lint + token sync
+python3 scripts/build.py --verify          # full verification
+python3 scripts/stabilize.py all --report  # HTML template normalization
+python3 scripts/tests/test_build.py        # test suite
+bash scripts/ensure-fonts.sh               # Korean web font fetch / verify
+bash scripts/package-skill.sh              # build release archive (dist/k-ramie.zip)
 ```
 
-## 项目独有硬规则
+## K-Ramie hard rules
 
-- 改 style 时同步更新 `references/design.md` 和模板 tokens，不要只改单点。
-- 加新模板：从最近的模板复制，对齐 `references/design.md`，加 demo 覆盖。
-- 不要在 docs / template 注释 / 脚本输出里用图形 emoji。脚本状态用 `OK:` / `ERROR:`。
-- 模板**内联** CSS，不抽公共 partial。修 CSS 漂移时跨模板同步改，不要引入 build-time include。
-- `HTML_TEMPLATES` 注册表在 `scripts/shared.py`，加删模板改这一处，不要分别改 build.py / stabilize.py。
-- 不打包大体积商业字体到 `dist/kami.zip`，但模板要保留稳定的本机预览路径。
-- `dist/kami.zip` 是 tracked release 制品。小修通常刷 latest release 资源即可，不必新 tag。
-- 改 build / stabilize / packaging 相关代码后，刷新并检查 `dist/kami.zip`；新增 helper/module/reference JSON 后，确认文件已被 Git 跟踪并进入 package。
-- 不提交一次性的 review 报告或诊断快照；只把稳定规则沉淀到 `AGENTS.md`、`SKILL.md` 或 `references/`。
+- When changing styles, sync `references/design.md` and the per-template `:root` tokens — never patch a single point.
+- When adding a template: copy from the nearest existing template, align with `references/design.md`, add demo coverage.
+- No graphic emoticons in docs, template comments, or script output. Use `OK:` / `ERROR:` for script status.
+- Templates inline their CSS — no shared partial. When fixing CSS drift, apply the same change across affected templates rather than introducing a build-time include.
+- The canonical `HTML_TEMPLATES` registry lives in `scripts/shared.py`. Add or remove templates there only — do not edit per-script dicts in `build.py` / `stabilize.py`.
+- Do not bundle large commercial fonts in `dist/k-ramie.zip`. Templates must keep stable local-preview paths and rely on system fallback chains.
+- `dist/k-ramie.zip` is a tracked release artifact. Small fixes usually refresh the latest release asset rather than cutting a new tag.
+- After changing build / stabilize / packaging code, refresh and inspect `dist/k-ramie.zip`. When adding helpers / modules / reference JSON, confirm the file is tracked by Git and enters the package.
+- Do not commit one-off review reports or diagnostic snapshots. Stable rules belong in `AGENTS.md`, `SKILL.md`, or `references/`; everything else gets discarded.
+
+## Korean / English scope
+
+- Default-slot templates (no suffix) render Korean. `-en` variants render English. ZH / TW / JA are out of scope — they belong to upstream [Kami](https://github.com/tw93/Kami).
+- Cross-template `:root` drift between a default-slot template and its `-en` pair is governed by `references/cross_template_diff_allowlist.json` — currently `--serif`, `--sans`, `--mono`, `--latin-ui`, `--display`, and per-pair slide typography metrics.
+- Reference docs are English-only. Korean-specific output lives in templates, not duplicated reference files.
+
+## Upstream sync
+
+Non–language-specific upstream improvements (stabilizer rules, lint fixes, render pipeline) are cherry-picked from `upstream/main` (`tw93/Kami`). See `CONTRIBUTING.md` for the workflow.

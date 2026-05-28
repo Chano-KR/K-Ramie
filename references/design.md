@@ -2,7 +2,40 @@
 
 ## Principles
 
-kami's aesthetic compresses into one sentence: **warm parchment canvas, ink-blue accent, serif carries hierarchy, avoid cool grays and hard shadows**.
+K-Ramie's aesthetic compresses into one sentence: **warm parchment canvas, ink-blue accent, serif carries hierarchy, avoid cool grays and hard shadows**. The system is Korean-first; English `-en` variants pair with each default-slot template.
+
+## Korean Typography
+
+K-Ramie's body chain is led by Chosunilbo Myungjo (조선일보명조), an editorial newspaper serif with a tighter Hangul rhythm than KoPub Batang. Fallbacks: Bareun Batang → KoPub World Batang → Noto Serif KR → Source Han Serif K → Nanum Myeongjo → Georgia. UI sans is Pretendard. See `FONTS.md` for per-font license terms.
+
+### Rules
+
+- `word-break: keep-all` everywhere on text containers — prevents mid-단어 breaks.
+- `line-break: strict` — Hangul-specific punctuation respect.
+- `overflow-wrap: anywhere` — guarantees no horizontal overflow when a long Latin token appears inside Korean text.
+- Body letter-spacing **−0.005em**, heading letter-spacing **−0.02em**.
+- Body line-height **1.7–1.8** for serif body; **1.85** for blog long-form; **1.4–1.5** for slide bodies.
+- Body font-size 10–11pt for print templates, 16–18px for screen templates.
+
+### Bilingual KO–EN mixing
+
+Latin substrings inside Korean body should be wrapped with `<span class="lat">...</span>`. The `.lat` rule (in `styles.css`) swaps `font-family` to `var(--latin-ui)` (Charter chain) so Latin runs stay aligned with the editorial Korean serif instead of dropping into whichever face happens to cover Latin.
+
+```html
+<p>저는 <span class="lat">React</span>와 <span class="lat">TypeScript</span>를 주로 사용합니다.</p>
+```
+
+### `--display` opt-in
+
+Sandoll Gukdae Tteokbokki sits in the `--display` slot. It is loaded by `@font-face` but is **never** inherited by body, headings, or slide titles. Apply only via the `.display`, `.poster`, or `.hero-mark` classes for single-glyph hero marks or decorative posters. The Sandoll license forbids CI/BI use; isolating the face to these classes keeps the constraint enforceable.
+
+```html
+<span class="hero-mark">한</span>      <!-- decorative single glyph: OK -->
+<h1 class="poster">국대 떡볶이</h1>      <!-- poster headline: OK -->
+<p>일반 본문은 절대 .display 클래스를 받지 않습니다.</p>
+```
+
+## Principles (continued)
 
 This is not a UI framework. It is a constraint system for print, designed to keep pages stable, clear, and readable.
 

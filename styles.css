@@ -1,4 +1,7 @@
-  /* Palatino is a system font, no @font-face needed */
+  /* Palatino is a system font, no @font-face needed. Korean web fonts load
+     subset WOFF2 from assets/fonts/ when present; otherwise the system
+     fallback chain in --serif / --sans takes over. Noto Serif KR is left
+     to Google Fonts CDN per fonts/fonts-google.css (loaded by templates). */
   @font-face {
     font-family: "JetBrains Mono";
     src: url("assets/fonts/JetBrainsMono.woff2") format("woff2");
@@ -7,13 +10,50 @@
     font-display: swap;
   }
   @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-family: "Chosunilbo Myungjo";
+    src: url("assets/fonts/ChosunilboMyungjo/ChosunilboMyungjo.woff2") format("woff2");
     font-weight: 400 500;
     font-style: normal;
     font-display: swap;
   }
-  
+  @font-face {
+    font-family: "Bareun Batang";
+    src: url("assets/fonts/BareunBatang/BareunBatang.woff2") format("woff2");
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "KoPub World Batang";
+    src: url("assets/fonts/KoPubWorldBatang/KoPubWorldBatang.woff2") format("woff2");
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Pretendard";
+    src: url("assets/fonts/Pretendard/PretendardVariable.woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "D2Coding";
+    src: url("assets/fonts/D2Coding/D2Coding.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    /* Display only. Body / heading / slide-title MUST NOT inherit this face.
+       License also forbids CI/BI use — see FONTS.md. */
+    font-family: "Sandoll Gukdae Tteokbokki";
+    src: url("assets/fonts/SandollGukdaeTteokbokki/SandollGukdaeTteokbokki.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
 
   :root {
     --parchment:    #f5f4ed;
@@ -36,31 +76,53 @@
     /* Slide-scale spacing */
     --slide-pad:    80px;
 
-    --serif: Charter, Georgia, "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Palatino, serif;
-    --sans: var(--serif);
-    --mono: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, Monaco, monospace;
-  }
+    /* Default (Korean) — see html[lang="ko"] / html[lang="en"] for explicit overrides. */
+    --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo",
+             "Bareun Batang", "BareunBatang",
+             "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang",
+             "Noto Serif KR", "Source Han Serif K",
+             "Nanum Myeongjo",
+             Georgia, "Iowan Old Style", Palatino, serif;
+    --sans:  "Pretendard", "Pretendard Variable",
+             "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
+             system-ui, sans-serif;
+    --mono:  "JetBrains Mono", "D2Coding", "Fira Code", "SF Mono", Consolas, Monaco, monospace;
 
-  html[lang="zh-CN"] {
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
-    --sans: var(--serif);
-  }
+    /* Opt-in only via .display, .poster, .hero-mark. Never inherited. */
+    --display: "Sandoll Gukdae Tteokbokki", var(--sans);
 
-  html[lang="ja"] {
-    --serif: "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", "Source Han Serif JP", "TsangerJinKai02", Georgia, serif;
-    --sans: var(--serif);
-    --olive: #4d4c48;  /* YuMincho strokes are thinner; darken olive text to compensate */
-  }
-
-  html[lang="zh-Hant"] {
-    --serif: "TsangerJinKai02", "Source Han Serif TC", "Noto Serif CJK TC", "Songti TC", Georgia, serif;
-    --sans: var(--serif);
+    /* Latin runs inside Korean body get this proxy stack. */
+    --latin-ui: Charter, Georgia, "Iowan Old Style", Palatino, serif;
   }
 
   html[lang="ko"] {
-    --serif: "Nanum Myeongjo", AppleMyungjo, "Noto Serif CJK KR", "Source Han Serif K", Georgia, serif;
-    --sans: var(--serif);
+    /* Body chain tuned for Hangul rhythm. olive darkened slightly because
+       Chosunilbo Myungjo strokes are finer than Western body serifs. */
+    --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo",
+             "Bareun Batang", "BareunBatang",
+             "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang",
+             "Noto Serif KR", "Source Han Serif K",
+             "Nanum Myeongjo",
+             Georgia, "Iowan Old Style", Palatino, serif;
+    --sans:  "Pretendard", "Pretendard Variable",
+             "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
+             system-ui, sans-serif;
     --olive: #4d4c48;
+  }
+
+  html[lang="en"] {
+    --serif: Charter, Georgia, "Iowan Old Style", Palatino, serif;
+    --sans: "Inter", "Pretendard", system-ui, sans-serif;
+  }
+
+  /* Display opt-in. Apply explicitly via class — never let body inherit. */
+  .display, .poster, .hero-mark {
+    font-family: var(--display);
+  }
+
+  /* Latin runs inside Korean body. Wrap Latin substrings with <span class="lat"> in templates. */
+  html[lang="ko"] .lat {
+    font-family: var(--latin-ui);
   }
 
   /* Language switcher */

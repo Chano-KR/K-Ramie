@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <!-- ==================================================================
      ONE-PAGER TEMPLATE · parchment design system
-     单页 A4 方案/报告/执行摘要
+     单页 A4 方案/报告/실행 요약
      改完跑：python3 -c "from weasyprint import HTML; HTML('one-pager.html').write_pdf('out.pdf')"
      目标：页数必须 == 1
      ================================================================== -->
-<html lang="zh-CN">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{文档标题}}</title>
-<meta name="author" content="{{作者}}">
-<meta name="description" content="{{摘要}}">
-<meta name="keywords" content="{{关键词}}">
-<meta name="generator" content="Kami">
+<title>{{文档제목}}</title>
+<meta name="author" content="{{작성자}}">
+<meta name="description" content="{{요약}}">
+<meta name="keywords" content="{{키워드}}">
+<meta name="generator" content="K-Ramie">
 <style>
   /* Regular weight */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
-
   /* Bold weight - W05 for all bold variants */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-
   @page {
     size: A4;
     margin: 15mm 18mm 15mm 18mm;
@@ -51,7 +35,7 @@
     --border:    #e8e6dc;
     --border-soft:#e5e3d8;
     --tag-bg:    #E4ECF5;
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo", "Bareun Batang", "BareunBatang", "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang", "Noto Serif KR", "Source Han Serif K", "Nanum Myeongjo", Georgia, "Iowan Old Style", Palatino, serif;
     --sans: var(--serif);
   }
 
@@ -94,9 +78,7 @@
     text-transform: uppercase;
     margin-bottom: 4pt;
   }
-  /* CN locale tuning: TsangerJinKai glyphs are wider per character, so H1 sits
-     slightly smaller (24pt vs EN 26pt) with looser leading (1.15 vs EN 1.12)
-     to keep optical density aligned across the two locales. */
+  
   h1 {
     font-family: var(--serif);
     font-size: 24pt;
@@ -251,7 +233,7 @@
     margin-right: 3pt;
   }
 
-  /* ========== Callout / 高亮块 ========== */
+  /* ========== Callout / 강조块 ========== */
   /* 参考 resume.html .team-culture：透明底 + 单左侧 brand 竖条。
      不做容器也不做圆角，气质是"一条旁注"而不是"一个卡片"。 */
   .callout {
@@ -318,61 +300,61 @@
 <!-- ========== HEADER ========== -->
 <div class="header">
   <div class="title-block">
-    <div class="eyebrow">{{EYEBROW · 如 "产品方案" / "项目提案" / "执行摘要"}}</div>
-    <h1>{{文档主标题（serif，2 行内，动词+名词结构最好）}}</h1>
-    <div class="subtitle">{{一行副标题 / 一句核心论点}}</div>
+    <div class="eyebrow">{{EYEBROW · 如 "제품 방안" / "프로젝트 제안" / "실행 요약"}}</div>
+    <h1>{{文档主제목（serif，2 行内，动词+名词结构最好）}}</h1>
+    <div class="subtitle">{{一行副제목 / 一句核心논점}}</div>
   </div>
   <div class="meta">
-    {{作者名}}<br>
-    {{日期 YYYY.MM.DD}}<br>
-    {{版本号 / 状态}}
+    {{작성자명}}<br>
+    {{날짜 YYYY.MM.DD}}<br>
+    {{버전 / 상태}}
   </div>
 </div>
 
 <!-- ========== METRICS（可选，3-4 卡最佳） ========== -->
 <div class="metrics">
   <div class="metric">
-    <div class="metric-value">{{数字}}</div>
-    <div class="metric-label">{{标签描述}}</div>
+    <div class="metric-value">{{숫자}}</div>
+    <div class="metric-label">{{标签설명}}</div>
   </div>
   <div class="metric">
-    <div class="metric-value">{{数字}}</div>
-    <div class="metric-label">{{标签描述}}</div>
+    <div class="metric-value">{{숫자}}</div>
+    <div class="metric-label">{{标签설명}}</div>
   </div>
   <div class="metric">
-    <div class="metric-value">{{数字}}</div>
-    <div class="metric-label">{{标签描述}}</div>
+    <div class="metric-value">{{숫자}}</div>
+    <div class="metric-label">{{标签설명}}</div>
   </div>
   <div class="metric">
-    <div class="metric-value">{{数字}}</div>
-    <div class="metric-label">{{标签描述}}</div>
+    <div class="metric-value">{{숫자}}</div>
+    <div class="metric-label">{{标签설명}}</div>
   </div>
 </div>
 
-<!-- ========== LEAD（导语，一段） ========== -->
+<!-- ========== LEAD（도입부，一段） ========== -->
 <p class="lead">
-  {{一段 40-60 字的核心论点导语。用「<span class="hl">关键词</span>」高亮重点。这段定调整个文档。}}
+  {{一段 40-60 字的核心논점도입부。用「<span class="hl">키워드</span>」강조重点。这段定调整个文档。}}
 </p>
 
-<!-- ========== 核心内容（两栏） ========== -->
+<!-- ========== 核心내용（两栏） ========== -->
 <div class="two-col">
   <section>
-    <h2>{{section 标题 1}}</h2>
-    <p>{{这里写 1-2 句段落，展开论点。}}</p>
+    <h2>{{section 제목 1}}</h2>
+    <p>{{这里写 1-2 句단락，展开논점。}}</p>
     <ul class="dash">
-      <li>{{短 bullet：数据/观察/判断}}</li>
-      <li>{{短 bullet：带 <span class="hl">关键数字</span> 的论据}}</li>
-      <li>{{短 bullet}}</li>
+      <li>{{짧은 bullet：데이터/관찰/판단}}</li>
+      <li>{{짧은 bullet：带 <span class="hl">关键숫자</span> 的논거}}</li>
+      <li>{{짧은 bullet}}</li>
     </ul>
   </section>
 
   <section>
-    <h2>{{section 标题 2}}</h2>
-    <p>{{1-2 句段落。}}</p>
+    <h2>{{section 제목 2}}</h2>
+    <p>{{1-2 句단락。}}</p>
     <ul class="dash">
-      <li>{{短 bullet}}</li>
-      <li>{{短 bullet}}</li>
-      <li>{{短 bullet}}</li>
+      <li>{{짧은 bullet}}</li>
+      <li>{{짧은 bullet}}</li>
+      <li>{{짧은 bullet}}</li>
     </ul>
   </section>
 </div>
@@ -383,17 +365,17 @@
   <div class="timeline">
     <div class="tl-step">
       <div class="tl-year">阶段 1</div>
-      <div class="tl-head">{{阶段标题}}</div>
+      <div class="tl-head">{{阶段제목}}</div>
       <div class="tl-body">{{一句解释}}</div>
     </div>
     <div class="tl-step">
       <div class="tl-year">阶段 2</div>
-      <div class="tl-head">{{阶段标题}}</div>
+      <div class="tl-head">{{阶段제목}}</div>
       <div class="tl-body">{{一句解释}}</div>
     </div>
     <div class="tl-step">
       <div class="tl-year">阶段 3</div>
-      <div class="tl-head">{{阶段标题}}</div>
+      <div class="tl-head">{{阶段제목}}</div>
       <div class="tl-body">{{一句解释}}</div>
     </div>
   </div>
@@ -401,7 +383,7 @@
 
 <!-- ========== CALLOUT（可选）========== -->
 <div class="callout">
-  {{关键引用 / 重要提示 / 核心 takeaway。比正文更需要引起注意的内容放这里。}}
+  {{关键引用 / 重要提示 / 核心 takeaway。比본문更需要引起注意的내용放这里。}}
 </div>
 
 <!-- ========== FOOTER ========== -->

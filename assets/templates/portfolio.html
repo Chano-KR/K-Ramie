@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <!-- ==================================================================
      PORTFOLIO TEMPLATE · parchment design system
-     多页 A4 作品集 / 案例集 / 项目集
-     结构：封面 -> About -> 若干项目页 -> Contact
-     每个项目 1-2 页，视觉重于文字
+     多页 A4 作品集 / 案例集 / 프로젝트集
+     结构：封面 -> About -> 若干프로젝트页 -> Contact
+     每个프로젝트 1-2 页，视觉重于文字
      ================================================================== -->
-<html lang="zh-CN">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>{{名字}} · 作品集</title>
 <meta name="author" content="{{名字}}">
-<meta name="description" content="{{摘要}}">
-<meta name="keywords" content="{{关键词}}">
-<meta name="generator" content="Kami">
+<meta name="description" content="{{요약}}">
+<meta name="keywords" content="{{키워드}}">
+<meta name="generator" content="K-Ramie">
 <style>
   /* Regular weight */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
-
   /* Bold weight - W05 for all bold variants */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-
   @page {
     size: A4;
     margin: 12mm 15mm 12mm 15mm;
@@ -56,7 +40,7 @@
     --border:    #e8e6dc;
     --border-soft:#e5e3d8;
     --tag-bg:    #E4ECF5;
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo", "Bareun Batang", "BareunBatang", "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang", "Noto Serif KR", "Source Han Serif K", "Nanum Myeongjo", Georgia, "Iowan Old Style", Palatino, serif;
     --sans: var(--serif);
 
     --rhythm-module:  14pt;
@@ -479,7 +463,7 @@
 
   <div class="cover-center">
     <div class="cover-name">{{名字<br>作品集}}</div>
-    <div class="cover-tagline">{{一句自我描述 / 作品集主题}}</div>
+    <div class="cover-tagline">{{一句自我설명 / 作品集主题}}</div>
     <div class="cover-line"></div>
   </div>
 
@@ -501,7 +485,7 @@
   <div class="about-title">{{一句自我定位的 headline}}</div>
   <div class="about-lead">
     {{2-3 行的自我介绍引言。serif 字体，斜体感，不写太 sales。
-    用自己的语言描述你关心什么、擅长什么。}}
+    用自己的语言설명你关心什么、擅长什么。}}
   </div>
   <div class="about-body">
     <div>
@@ -510,7 +494,7 @@
     </div>
     <div>
       <h3>关注</h3>
-      <p>{{一段关于你当前的关注点 / 方法论。}}</p>
+      <p>{{一段关于你当前的关注点 / 방법论。}}</p>
     </div>
   </div>
 </section>
@@ -520,9 +504,9 @@
   <div class="project-header">
     <div class="project-num">01</div>
     <div class="project-title-block">
-      <div class="project-type">{{项目类型 · 如 "Product Design" / "Open Source"}}</div>
-      <div class="project-title">{{项目名称}}</div>
-      <div class="project-subtitle">{{一句话描述这个项目做了什么}}</div>
+      <div class="project-type">{{프로젝트유형 · 如 "Product Design" / "Open Source"}}</div>
+      <div class="project-title">{{프로젝트명칭}}</div>
+      <div class="project-subtitle">{{一句话설명这个프로젝트做了什么}}</div>
     </div>
     <div class="project-date">{{时间 · 如 "2025.04 - 2026.02"}}</div>
   </div>
@@ -536,14 +520,14 @@
   <!-- 主图 -->
   <div class="project-hero">
     <!-- 替换为：<img src="project-01-hero.png" alt=""> -->
-    [项目主图占位 · 替换为 &lt;img src="xxx.png"&gt;]
+    [프로젝트主图占位 · 替换为 &lt;img src="xxx.png"&gt;]
   </div>
 
-  <!-- 三段式正文 -->
+  <!-- 三段式본문 -->
   <div class="project-body">
     <div class="project-block">
       <h3>Context</h3>
-      <p>{{为什么做这个项目？要解决什么问题？谁是用户？}}</p>
+      <p>{{为什么做这个프로젝트？要解决什么问题？谁是用户？}}</p>
     </div>
     <div class="project-block">
       <h3>Approach</h3>
@@ -551,22 +535,22 @@
     </div>
     <div class="project-block">
       <h3>Outcome</h3>
-      <p>{{结果是什么？<span class="hl">数据</span>、反馈、影响。}}</p>
+      <p>{{结果是什么？<span class="hl">데이터</span>、反馈、영향。}}</p>
     </div>
   </div>
 
-  <!-- 关键数据（可选）-->
+  <!-- 关键데이터（可选）-->
   <div class="project-results">
     <div class="result-item">
-      <div class="result-value">{{数字}}</div>
+      <div class="result-value">{{숫자}}</div>
       <div class="result-label">{{标签}}</div>
     </div>
     <div class="result-item">
-      <div class="result-value">{{数字}}</div>
+      <div class="result-value">{{숫자}}</div>
       <div class="result-label">{{标签}}</div>
     </div>
     <div class="result-item">
-      <div class="result-value">{{数字}}</div>
+      <div class="result-value">{{숫자}}</div>
       <div class="result-label">{{标签}}</div>
     </div>
   </div>
@@ -577,9 +561,9 @@
   <div class="project-header">
     <div class="project-num">02</div>
     <div class="project-title-block">
-      <div class="project-type">{{项目类型}}</div>
-      <div class="project-title">{{项目名称}}</div>
-      <div class="project-subtitle">{{一句话描述}}</div>
+      <div class="project-type">{{프로젝트유형}}</div>
+      <div class="project-title">{{프로젝트명칭}}</div>
+      <div class="project-subtitle">{{一句话설명}}</div>
     </div>
     <div class="project-date">{{时间}}</div>
   </div>
@@ -602,7 +586,7 @@
     </div>
     <div class="project-block">
       <h3>Approach</h3>
-      <p>{{方法}}</p>
+      <p>{{방법}}</p>
     </div>
     <div class="project-block">
       <h3>Outcome</h3>
@@ -618,8 +602,8 @@
   <div class="work-item">
     <span class="work-year">2025</span>
     <div class="work-title-block">
-      <div class="title">{{作品标题}}</div>
-      <div class="desc">{{一句描述}}</div>
+      <div class="title">{{作品제목}}</div>
+      <div class="desc">{{一句설명}}</div>
     </div>
     <div class="work-link">{{链接 / 状态}}</div>
   </div>
@@ -627,8 +611,8 @@
   <div class="work-item">
     <span class="work-year">2024</span>
     <div class="work-title-block">
-      <div class="title">{{作品标题}}</div>
-      <div class="desc">{{一句描述}}</div>
+      <div class="title">{{作品제목}}</div>
+      <div class="desc">{{一句설명}}</div>
     </div>
     <div class="work-link">{{链接 / 状态}}</div>
   </div>
@@ -636,8 +620,8 @@
   <div class="work-item">
     <span class="work-year">2023</span>
     <div class="work-title-block">
-      <div class="title">{{作品标题}}</div>
-      <div class="desc">{{一句描述}}</div>
+      <div class="title">{{作品제목}}</div>
+      <div class="desc">{{一句설명}}</div>
     </div>
     <div class="work-link">{{链接 / 状态}}</div>
   </div>

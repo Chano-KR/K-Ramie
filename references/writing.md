@@ -1,6 +1,46 @@
 # Content Strategy
 
-How to write, not how to lay out. Good typography with bad content is just "polished mediocrity". This document covers the writing principles for both Chinese and English output. Shared rules come first; language-specific details are called out where they matter.
+How to write, not how to lay out. Good typography with bad content is just "polished mediocrity". This document covers the writing principles for K-Ramie's Korean and English output. Shared rules come first; language-specific details are called out where they matter.
+
+## Korean writing rules
+
+### Formality (해체 ↔ 합니다체)
+
+Match the document tone, not the user's prompt tone.
+
+| Template | Default formality | Notes |
+|---|---|---|
+| `letter`, `equity-report`, `resume`, `portfolio` | 합니다체 / 입니다체 | Formal documents lean to the deferential register. |
+| `one-pager`, `long-doc`, `landing-page`, `blog-post` | 합니다체 with selective 해체 | Mostly formal; use 해체 only for callouts, quotes, or section-level lede. |
+| `slides-*` | 명사형 종결 (체언 종결) | Slides prefer noun-ending headlines and bullet points — drop verb endings entirely where it reads cleanly. |
+| `changelog` | 합니다체 or 명사형 | Match upstream style of the project. |
+
+Never mix 합니다체 and 해체 inside a single paragraph.
+
+### 띄어쓰기 baseline
+
+Follow the National Institute of Korean Language (국립국어원) baseline. K-Ramie does not enforce house overrides. When 띄어쓰기 is ambiguous, prefer the rule that gives the smoothest column wrap under `word-break: keep-all`.
+
+### Punctuation
+
+- Inline quotes: `"...".` Do not use 「」 unless rendering a quoted Korean classical text.
+- Inline emphasis: `「강조」` only when the term is being defined or labeled, not for general emphasis. For general emphasis, use `<span class="hl">강조</span>`.
+- Mid-sentence separator: 가운뎃점 `·` (U+00B7) — not the half-width interpunct `・` (U+30FB, Japanese).
+- Em-dash: `—` (U+2014) preceded and followed by a space, used to introduce an aside.
+- Numbers: thousand-separator comma (e.g., `1,234`). Decimal point.
+
+### Mixed Hangul–Latin runs
+
+- Wrap Latin substrings with `<span class="lat">...</span>` so they pick up `--latin-ui` (Charter) instead of the Korean serif's Latin coverage. See `design.md` Korean Typography section.
+- Don't add spaces around `(`, `)`, `<`, `>` even when they border Hangul — Korean reading expects no internal padding around bracket pairs.
+
+### Tone and density
+
+- One main argument per paragraph. Move tangents to a bullet list or sidebar.
+- Avoid 영어 직역체 (translationese): drop redundant relative clauses, prefer active voice over 피동 stacks, replace 명사형 chains with verbs.
+- Hard cap on slide text density: see `design.md` slide-deck section. Long Hangul prose on slides reads as wall-of-text faster than English does — be more aggressive about cutting.
+
+---
 
 ---
 

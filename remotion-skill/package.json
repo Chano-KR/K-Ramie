@@ -1,0 +1,75 @@
+{
+  "name": "@kramie/remotion",
+  "version": "0.1.0",
+  "description": "K-Ramie video subsystem: drop-in modular layer for existing Remotion harnesses. Splits heavy motion (Remotion) from lightweight scenes (Hyperframes), with ffmpeg-stitched hybrid output. Korean captions hardcode Pretendard for legibility.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./theme": {
+      "import": "./dist/theme/index.js",
+      "types": "./dist/theme/index.d.ts"
+    },
+    "./compositions": {
+      "import": "./dist/compositions/index.js",
+      "types": "./dist/compositions/index.d.ts"
+    },
+    "./hyperframes": {
+      "import": "./dist/hyperframes/index.js",
+      "types": "./dist/hyperframes/index.d.ts"
+    },
+    "./stitcher": {
+      "import": "./dist/stitcher/index.js",
+      "types": "./dist/stitcher/index.d.ts"
+    },
+    "./config": {
+      "import": "./dist/config/index.js",
+      "types": "./dist/config/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "README.md",
+    "INTEGRATION.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "tsc --noEmit",
+    "test": "node --test --experimental-strip-types src/**/*.test.ts",
+    "demo:remotion-only": "echo 'See remotion-skill/INTEGRATION.md — run from a host Remotion project.'",
+    "demo:hyperframes-only": "echo 'See remotion-skill/INTEGRATION.md — run from a host Hyperframes project.'",
+    "demo:hybrid": "echo 'See remotion-skill/INTEGRATION.md — run the stitcher with a manifest.'"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "remotion": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@remotion/google-fonts": { "optional": true }
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/react": "^19.0.0"
+  },
+  "keywords": [
+    "remotion",
+    "hyperframes",
+    "korean",
+    "design-system",
+    "k-ramie",
+    "kami",
+    "video"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Chano-KR/K-Ramie"
+  }
+}

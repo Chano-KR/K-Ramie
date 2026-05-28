@@ -1,17 +1,17 @@
 {
-  "name": "kami",
-  "description": "Document typesetting skill for Claude Code.",
+  "name": "k-ramie",
+  "description": "Korean-first document typesetting skill for Claude Code. Fork of Kami (tw93/Kami).",
   "owner": {
-    "name": "Tw93",
-    "email": "hitw93@gmail.com"
+    "name": "Chano-KR",
+    "email": ""
   },
   "plugins": [
     {
-      "name": "kami",
-      "description": "Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Warm parchment, ink-blue accent, serif-led hierarchy.",
+      "name": "k-ramie",
+      "description": "Typeset professional Korean and English documents: resumes, one-pagers, white papers, letters, portfolios, slide decks, blog pages. Warm parchment, ink-blue accent, serif-led hierarchy tuned for Hangul.",
       "category": "documents",
       "source": "./",
-      "homepage": "https://github.com/tw93/kami"
+      "homepage": "https://github.com/Chano-KR/K-Ramie"
     }
   ]
 }

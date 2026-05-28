@@ -4,8 +4,8 @@ Full specification for loading and applying user brand profiles. Referenced from
 
 ## Profile locations
 
-1. `~/.config/kami/brand.md` (global user config, XDG-compliant, preferred)
-2. `~/.kami/brand.md` (legacy fallback)
+1. `~/.config/k-ramie/brand.md` (global user config, XDG-compliant, preferred)
+2. `~/.k-ramie/brand.md` (legacy fallback)
 
 If found, parse the YAML frontmatter for structured fields and treat the Markdown body below the frontmatter as freeform habit notes. If no profile exists, continue without interruption.
 

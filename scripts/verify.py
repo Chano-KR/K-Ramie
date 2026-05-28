@@ -20,8 +20,23 @@ from optional_deps import (
 )
 from shared import DIAGRAMS, EXAMPLES, TEMPLATES, load_checks_thresholds
 
-# Primary fonts expected in embedded PDF font names
-CN_PRIMARY_FONTS = {"TsangerJinKai02"}
+# Primary fonts expected in embedded PDF font names.
+# Korean default-slot templates should embed one of the KO body serifs;
+# English -en variants should embed Charter (or accepted fallback).
+KO_PRIMARY_FONTS = {
+    "ChosunilboMyungjo",
+    "Chosunilbo Myungjo",
+    "BareunBatang",
+    "Bareun Batang",
+    "KoPubWorldBatang",
+    "KoPubWorld Batang",
+    "NotoSerifKR",
+    "Noto Serif KR",
+    "SourceHanSerifK",
+    "Source Han Serif K",
+    "NanumMyeongjo",
+    "Nanum Myeongjo",
+}
 EN_PRIMARY_FONTS = {"Charter"}
 
 
@@ -141,8 +156,11 @@ def verify_target(
     embedded = _pdf_font_names(out)
     fallback_present = any(
         kw in font for font in embedded
-        for kw in ("Georgia", "Palatino", "TsangerJinKai", "YuMincho", "Hiragino",
-                   "SourceHan", "Noto", "Charter", "Songti", "DejaVu", "Liberation")
+        for kw in ("Georgia", "Palatino", "Chosunilbo", "ChosunilboMyungjo",
+                   "Bareun", "BareunBatang", "KoPub", "KoPubWorld",
+                   "NotoSerifKR", "Noto Serif KR", "Noto",
+                   "SourceHan", "Source Han Serif K", "NanumMyeongjo", "Nanum",
+                   "Charter", "DejaVu", "Liberation")
     )
 
     # Diagram templates are language-neutral and often rely on fallback stacks,
@@ -154,15 +172,16 @@ def verify_target(
         return issues
 
     is_en = name.endswith("-en")
-    expected = EN_PRIMARY_FONTS if is_en else CN_PRIMARY_FONTS
+    expected = EN_PRIMARY_FONTS if is_en else KO_PRIMARY_FONTS
     if not any(exp in font_name for exp in expected for font_name in embedded):
         primary = next(iter(expected))
         if not fallback_present:
             issues.append(f"no recognizable font embedded in {out.name}")
-        elif os.environ.get("KAMI_ALLOW_FALLBACK_ONLY"):
-            # CI / headless boxes never have commercial fonts (TsangerJinKai02,
-            # Charter). Treat "primary missing, fallback present" as a warning
-            # there so CI can still gate page-count regressions.
+        elif os.environ.get("KRAMIE_ALLOW_FALLBACK_ONLY") or os.environ.get("KAMI_ALLOW_FALLBACK_ONLY"):
+            # CI / headless boxes never have web-only Korean fonts. Treat
+            # "primary missing, fallback present" as a warning there so CI can
+            # still gate page-count regressions. KAMI_* env var kept for
+            # backward compatibility with upstream Kami workflows.
             print(f"  WARN: {name}: primary font ({primary}) not embedded; using fallback")
         else:
             issues.append(f"primary font ({primary}) not embedded; using fallback")

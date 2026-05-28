@@ -2,25 +2,22 @@
 <!--
   lastmod is bumped manually on each public-site update.
   Suggested workflow: get the latest commit date for the index pages with
-  `git log -1 +format=%cs` (use the long flag form), then copy that ISO date
-  into every <lastmod> entry below before tagging a release.
+  `git log -1 --format=%cs`, then copy that ISO date into every <lastmod>
+  entry below before tagging a release.
+
+  K-Ramie site domain is TBD. Update the host portion of every <loc> when
+  the production domain is decided. Default placeholder: https://k-ramie.vercel.app/
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kami.tw93.fun/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <loc>https://k-ramie.vercel.app/</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://kami.tw93.fun/index-zh.html</loc>
-    <lastmod>2026-05-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kami.tw93.fun/index-ja.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <loc>https://k-ramie.vercel.app/index-en.html</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

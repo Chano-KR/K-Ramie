@@ -1,4 +1,4 @@
-# kami · Cheatsheet
+# K-Ramie · Cheatsheet
 
 One-page quick reference. Scan before filling a template or tweaking a detail. Full spec in `references/design.md`.
 

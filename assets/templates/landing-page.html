@@ -5,7 +5,7 @@
      Sections: Hero · Gallery · Features · Principles · Pricing · FAQ · Footer
      No PDF output — designed for browser delivery via Vercel / Netlify / static host
      ================================================================== -->
-<html lang="zh-CN">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <title>{{PRODUCT_NAME}} · {{TAGLINE_SHORT}}</title>
@@ -48,21 +48,6 @@
 <style>
 /* ========== Tokens ========== */
 
-@font-face {
-  font-family: "TsangerJinKai02";
-  src: url("https://cdn.jsdelivr.net/gh/AlfredoSequeworthy/TsangerJinKai02@main/TsangerJinKai02-W04.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "TsangerJinKai02";
-  src: url("https://cdn.jsdelivr.net/gh/AlfredoSequeworthy/TsangerJinKai02@main/TsangerJinKai02-W05.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --parchment:    #f5f4ed;
   --ivory:        #faf9f5;
@@ -81,13 +66,9 @@
   --border-soft:  #e5e3d8;
   --line:         #d8d5c8;
 
-  --serif: "TsangerJinKai02", "Source Han Serif SC",
-           "Noto Serif CJK SC", "Songti SC", "STSong",
-           Georgia, serif;
+  --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo", "Bareun Batang", "BareunBatang", "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang", "Noto Serif KR", "Source Han Serif K", "Nanum Myeongjo", Georgia, "Iowan Old Style", Palatino, serif;
   --sans:  var(--serif);
-  --mono:  "JetBrains Mono", "SF Mono", Consolas,
-           "TsangerJinKai02", "Source Han Serif SC",
-           monospace;
+  --mono: "JetBrains Mono", "D2Coding", "Fira Code", "SF Mono", Consolas, Monaco, monospace;
   --latin-ui: "PingFang SC", system-ui, -apple-system, sans-serif;
 
   --shot-bg: #141318;
@@ -1011,7 +992,7 @@ footer.foot {
       </div>
       -->
     </dl>
-    <!-- {{FAQ_TAIL}} — 可选的收尾段落，例如：
+    <!-- {{FAQ_TAIL}} — 可选的收尾단락，例如：
     <p class="faq-tail">更多问题？请访问<a href="/help">帮助页面</a>。</p>
     -->
   </section>

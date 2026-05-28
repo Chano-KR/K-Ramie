@@ -2,44 +2,27 @@
 <!-- ==================================================================
      EQUITY REPORT TEMPLATE · parchment design system
      2-3 页 A4 个股研报 / 估值分析 / 投资备忘
-     结构：标题区 -> 核心指标 -> 图表分析 -> 竞争格局 -> 风险 -> 总结
+     结构：제목区 -> 核心指标 -> 图表分析 -> 竞争格局 -> 리스크 -> 总结
      ================================================================== -->
-<html lang="zh-CN">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{股票名称}} · 个股研报</title>
-<meta name="author" content="{{作者}}">
-<meta name="description" content="{{摘要}}">
-<meta name="keywords" content="{{关键词}}">
-<meta name="generator" content="Kami">
+<title>{{股票명칭}} · 个股研报</title>
+<meta name="author" content="{{작성자}}">
+<meta name="description" content="{{요약}}">
+<meta name="keywords" content="{{키워드}}">
+<meta name="generator" content="K-Ramie">
 <style>
   /* Regular weight */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
-
   /* Bold weight - W05 for all bold variants */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-
   @page {
     size: A4;
     margin: 16mm 18mm 18mm 18mm;
     background: #f5f4ed;
 
     @bottom-center {
-      content: counter(page) "  ·  {{股票名称}} 研报";
-      font-family: "TsangerJinKai02", "Source Han Serif SC",
-                   "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      content: counter(page) "  ·  {{股票명칭}} 研报";
+      font-family: Georgia, serif;
       font-size: 9pt;
       color: #6b6a64;
     }
@@ -60,7 +43,7 @@
     --tag-bg:    #E4ECF5;
     --positive:  #1B365D;
     --negative:  #6b6a64;
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo", "Bareun Batang", "BareunBatang", "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang", "Noto Serif KR", "Source Han Serif K", "Nanum Myeongjo", Georgia, "Iowan Old Style", Palatino, serif;
     --sans: var(--serif);
 
     --rhythm-module:  14pt;
@@ -361,8 +344,8 @@
 <div class="report-header">
   <div class="ticker-block">
     <div class="ticker-eyebrow">{{EYEBROW · 如 "个股研报" / "估值分析" / "投资备忘"}}</div>
-    <div class="ticker-name">{{公司名称}} <span style="font-size: 14pt; color: var(--stone);">{{股票代码}}</span></div>
-    <div class="ticker-sub">{{行业}} · {{交易所}} · {{一句核心判断}}</div>
+    <div class="ticker-name">{{公司명칭}} <span style="font-size: 14pt; color: var(--stone);">{{股票代码}}</span></div>
+    <div class="ticker-sub">{{行业}} · {{交易所}} · {{一句核心판단}}</div>
   </div>
   <div class="price-block">
     <div class="price-current">{{当前价格}}</div>
@@ -374,26 +357,26 @@
 <!-- ========== METRICS ========== -->
 <div class="metrics">
   <div class="metric">
-    <div class="metric-value">{{数字}}</div>
+    <div class="metric-value">{{숫자}}</div>
     <div class="metric-label">市值</div>
   </div>
   <div class="metric">
-    <div class="metric-value">{{数字}}</div>
+    <div class="metric-value">{{숫자}}</div>
     <div class="metric-label">P/E</div>
   </div>
   <div class="metric">
-    <div class="metric-value">{{数字}}</div>
+    <div class="metric-value">{{숫자}}</div>
     <div class="metric-label">营收</div>
   </div>
   <div class="metric">
-    <div class="metric-value">{{数字}}</div>
+    <div class="metric-value">{{숫자}}</div>
     <div class="metric-label">利润率</div>
   </div>
 </div>
 
 <!-- ========== INVESTMENT THESIS ========== -->
 <h2>投资逻辑</h2>
-<p>{{2-3 句核心投资论点。用 <span class="hl">关键数据</span> 支撑判断。这段是整份研报的灵魂。}}</p>
+<p>{{2-3 句核心投资논점。用 <span class="hl">关键데이터</span> 支撑판단。这段是整份研报的灵魂。}}</p>
 
 <div class="callout">
   {{一句话总结：买入/持有/观望的核心理由。}}
@@ -406,7 +389,7 @@
   <div class="chart-placeholder" style="height: 60mm;">
     [K 线图 / 价格走势图占位 · 从 diagrams/ 提取 SVG 嵌入]
   </div>
-  <figcaption>{{图表标题，如 "近 20 个交易日价格走势"}}</figcaption>
+  <figcaption>{{图表제목，如 "近 20 个交易日价格走势"}}</figcaption>
 </figure>
 
 <!-- ========== FINANCIALS ========== -->
@@ -423,33 +406,33 @@
   <tbody>
     <tr>
       <td>营收</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
     <tr>
       <td>净利润</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
     <tr>
       <td>EPS</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
     <tr>
       <td>毛利率</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
     <tr>
       <td>ROE</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
   </tbody>
 </table>
@@ -460,7 +443,7 @@
   <div class="chart-placeholder" style="height: 50mm;">
     [营收分解图占位 · 环形图或瀑布图]
   </div>
-  <figcaption>{{图表标题}}</figcaption>
+  <figcaption>{{图表제목}}</figcaption>
 </figure>
 
 <!-- ========== COMPETITIVE POSITIONING ========== -->
@@ -481,53 +464,53 @@
   <tbody>
     <tr>
       <td><strong>{{目标公司}}</strong></td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
     <tr>
       <td>{{竞品 A}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
     <tr>
       <td>{{竞品 B}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
     <tr>
       <td>{{竞品 C}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
-      <td>{{数据}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
+      <td>{{데이터}}</td>
     </tr>
   </tbody>
 </table>
 
 <!-- ========== RISKS ========== -->
-<h2>风险提示</h2>
+<h2>리스크提示</h2>
 <div class="risk-grid">
   <div class="risk-item">
-    <div class="risk-label">{{风险类型 1}}</div>
-    <div class="risk-desc">{{风险描述}}</div>
+    <div class="risk-label">{{리스크유형 1}}</div>
+    <div class="risk-desc">{{리스크설명}}</div>
   </div>
   <div class="risk-item">
-    <div class="risk-label">{{风险类型 2}}</div>
-    <div class="risk-desc">{{风险描述}}</div>
+    <div class="risk-label">{{리스크유형 2}}</div>
+    <div class="risk-desc">{{리스크설명}}</div>
   </div>
   <div class="risk-item">
-    <div class="risk-label">{{风险类型 3}}</div>
-    <div class="risk-desc">{{风险描述}}</div>
+    <div class="risk-label">{{리스크유형 3}}</div>
+    <div class="risk-desc">{{리스크설명}}</div>
   </div>
   <div class="risk-item">
-    <div class="risk-label">{{风险类型 4}}</div>
-    <div class="risk-desc">{{风险描述}}</div>
+    <div class="risk-label">{{리스크유형 4}}</div>
+    <div class="risk-desc">{{리스크설명}}</div>
   </div>
 </div>
 
@@ -540,7 +523,7 @@
 <!-- ========== FOOTER ========== -->
 <div class="report-footer">
   <span>{{机构名 / 免责声明}}</span>
-  <span>{{作者}} · {{日期}}</span>
+  <span>{{작성자}} · {{日期}}</span>
 </div>
 
 </body>

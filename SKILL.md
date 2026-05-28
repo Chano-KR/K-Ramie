@@ -1,19 +1,17 @@
 ---
-name: kami
-description: 'Typeset professional documents and product landing pages: resumes, one-pagers, white papers, letters, portfolios, slide decks, landing pages. Warm parchment, ink-blue accent, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter, JA uses YuMincho (best-effort). Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides / 落地页 / 官网 / landing page / product page", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable / create a landing page".'
+name: k-ramie
+description: 'Typeset professional Korean and English documents, slide decks, landing pages, and blog pages: resumes, one-pagers, white papers, letters, portfolios, equity reports, changelogs. Warm parchment, ink-blue accent, serif-led hierarchy tuned for Hangul. Korean body uses Chosunilbo Myungjo (with Bareun Batang / KoPub World Batang / Noto Serif KR fallbacks); English uses Charter; UI sans is Pretendard. Triggers on "원페이저 / 한 페이지 / 백서 / 포트폴리오 / 이력서 / 슬라이드 / 발표 자료 / 랜딩페이지 / 블로그", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable / create a landing page / write a Korean blog post".'
 ---
 
-# kami · 紙
+# K-Ramie · 한지
 
-**紙 · かみ** - the paper your deliverables land on.
+**한지** — the paper your Korean and English deliverables land on. K-Ramie is a Korean-first fork of [Kami](https://github.com/tw93/Kami).
 
-Good content deserves good paper. One design language across eight document types: warm parchment canvas, ink-blue accent, serif-led hierarchy, tight editorial rhythm.
-
-Part of `Kaku · Waza · Kami` - Kaku writes code, Waza drills habits, **Kami delivers documents**.
+Good content deserves good paper. One design language across the full document set: warm parchment canvas, ink-blue accent, serif-led hierarchy, tight editorial rhythm tuned for Hangul reading.
 
 ## Step 0 · Load brand profile (if exists)
 
-Check `~/.config/kami/brand.md` (preferred) or `~/.kami/brand.md` (legacy fallback). If found, read `references/brand-profile.md` for the full four-layer application spec (placeholder substitution, session defaults, visual customization, habit notes) and its six guardrails. If no profile exists, continue without interruption.
+Check `~/.config/k-ramie/brand.md` (preferred) or `~/.k-ramie/brand.md` (legacy fallback). If found, read `references/brand-profile.md` for the full four-layer application spec (placeholder substitution, session defaults, visual customization, habit notes) and its six guardrails. If no profile exists, continue without interruption.
 
 Key rule: explicit prompt > editorial judgment > habit notes > frontmatter defaults > built-in defaults. Profile fills gaps silently; it never overrides the current conversation.
 
@@ -37,16 +35,15 @@ Skip and fall back to the brand profile defaults if the referenced path does not
 
 ## Step 1 · Decide the language
 
-**Match the user's language.** Chinese -> `*.html` / `slides-weasy.html`. English -> `*-en.html` / `slides-weasy-en.html`. Japanese -> CJK path (`.html` / `slides-weasy.html`) as best-effort, JP Mincho first, visual QA before shipping. Reference docs are shared English specs.
+**Match the user's language.** Korean -> `*.html` / `slides-weasy.html`. English -> `*-en.html` / `slides-weasy-en.html`. Reference docs are shared English specs. ZH / TW / JA are out of scope for K-Ramie — defer those to upstream [Kami](https://github.com/tw93/Kami).
 
 When ambiguous (e.g. a one-word command like "resume"), ask a one-liner rather than guess.
 
 | User language | HTML templates | Slides (PDF default) | Slides (PPTX fallback) |
 |---|---|---|---|
-| Chinese (primary) | `*.html` | `slides-weasy.html` | `slides.py` |
+| Korean (primary) | `*.html` | `slides-weasy.html` | `slides.py` |
 | English | `*-en.html` | `slides-weasy-en.html` | `slides-en.py` |
-| Japanese (best-effort) | `*.html` | `slides-weasy.html` | `slides.py` |
-| Other languages (best-effort) | choose CJK or EN path by script coverage, then verify manually | choose `slides-weasy.html` or `slides-weasy-en.html`, then verify manually | use `slides.py` / `slides-en.py` only if PPTX is required |
+| Other languages | choose KO or EN path by script coverage, then verify manually | choose `slides-weasy.html` or `slides-weasy-en.html`, then verify manually | use `slides.py` / `slides-en.py` only if PPTX is required |
 
 > Default to the WeasyPrint HTML path; fall back to PPTX (`slides*.py`) only when the user explicitly needs an editable deck.
 
@@ -77,23 +74,23 @@ Before creating or modifying an output, lock the contract: language, template, o
 
 Use the nearest existing template and verification path. Do not add a new template, stabilizer profile, shared CSS layer, dependency, script flag, or optional mode unless the current request cannot be satisfied without it.
 
-If a change touches `SKILL.md`, templates, scripts, references, or package inputs, decide whether `dist/kami.zip` must be refreshed before handoff. Shipped behavior is not ready until the package contains the changed files.
+If a change touches `SKILL.md`, templates, scripts, references, or package inputs, decide whether `dist/k-ramie.zip` must be refreshed before handoff. Shipped behavior is not ready until the package contains the changed files.
 
 ---
 
 ## Step 2 · Pick the document type
 
-| User says | Document | CN template | EN template |
+| User says | Document | KO template | EN template |
 |---|---|---|---|
-| "one-pager / 方案 / 执行摘要 / exec summary" | One-Pager | `one-pager.html` | `one-pager-en.html` |
-| "white paper / 白皮书 / 长文 / 年度总结 / technical report" | Long Doc | `long-doc.html` | `long-doc-en.html` |
-| "formal letter / 信件 / 辞职信 / 推荐信 / memo" | Letter | `letter.html` | `letter-en.html` |
-| "portfolio / 作品集 / case studies" | Portfolio | `portfolio.html` | `portfolio-en.html` |
-| "resume / CV / 简历 / 履歴書" | Resume | `resume.html` | `resume-en.html` |
-| "slides / PPT / deck / 演示" | Slides | `slides-weasy.html` | `slides-weasy-en.html` |
-| "个股研报 / equity report / 估值分析 / investment memo / 股票分析" | Equity Report | `equity-report.html` | `equity-report-en.html` |
-| "更新日志 / changelog / release notes / 版本记录" | Changelog | `changelog.html` | `changelog-en.html` |
-| "landing page / 落地页 / 官网 / product page / 产品页" | Landing Page | `landing-page.html` | `landing-page-en.html` |
+| "one-pager / 원페이저 / 한 페이지 / 실행 요약 / exec summary" | One-Pager | `one-pager.html` | `one-pager-en.html` |
+| "white paper / 백서 / 장문 / 연간 보고 / technical report" | Long Doc | `long-doc.html` | `long-doc-en.html` |
+| "formal letter / 정식 서신 / 사직서 / 추천서 / memo" | Letter | `letter.html` | `letter-en.html` |
+| "portfolio / 포트폴리오 / 작품집 / case studies" | Portfolio | `portfolio.html` | `portfolio-en.html` |
+| "resume / CV / 이력서" | Resume | `resume.html` | `resume-en.html` |
+| "slides / PPT / deck / 슬라이드 / 발표 자료" | Slides | `slides-weasy.html` | `slides-weasy-en.html` |
+| "종목 리서치 / equity report / 밸류에이션 분석 / investment memo / 주식 분석" | Equity Report | `equity-report.html` | `equity-report-en.html` |
+| "체인지로그 / changelog / release notes / 버전 기록" | Changelog | `changelog.html` | `changelog-en.html` |
+| "landing page / 랜딩페이지 / 공식 사이트 / product page / 제품 페이지" | Landing Page | `landing-page.html` | `landing-page-en.html` |
 
 > **Changelog vs. release notes**: The changelog template above is for styled document output. GitHub release notes are a separate deliverable; use `/write` with Release Note Template Mode.
 
@@ -133,10 +130,10 @@ When the user asks for **a diagram inside** a long-doc / portfolio / slide (not 
 
 | User says | Diagram | Template |
 |---|---|---|
-| "架构图 / architecture / 系统图 / components diagram" | Architecture | `assets/diagrams/architecture.html` |
-| "流程图 / flowchart / 决策流 / branching logic" | Flowchart | `assets/diagrams/flowchart.html` |
-| "象限图 / quadrant / 优先级矩阵 / 2×2 matrix" | Quadrant | `assets/diagrams/quadrant.html` |
-| "柱状图 / bar chart / 分类对比 / grouped bars" | Bar Chart | `assets/diagrams/bar-chart.html` |
+| "아키텍처 / architecture / 시스템 다이어그램 / components diagram" | Architecture | `assets/diagrams/architecture.html` |
+| "플로우차트 / flowchart / 결정 흐름 / branching logic" | Flowchart | `assets/diagrams/flowchart.html` |
+| "사분면 / quadrant / 우선순위 매트릭스 / 2×2 matrix" | Quadrant | `assets/diagrams/quadrant.html` |
+| "막대그래프 / bar chart / 카테고리 비교 / grouped bars" | Bar Chart | `assets/diagrams/bar-chart.html` |
 | "折线图 / line chart / 趋势 / 股价 / time series" | Line Chart | `assets/diagrams/line-chart.html` |
 | "环形图 / donut / pie / 占比 / 分布结构" | Donut Chart | `assets/diagrams/donut-chart.html` |
 | "状态机 / state machine / 状态图 / lifecycle" | State Machine | `assets/diagrams/state-machine.html` |
@@ -365,7 +362,7 @@ Every template has meta placeholders in `<head>`. Fill all four before building:
 
 **Author inference**: `build.py` automatically sets PDF `/Author` metadata from:
 1. `git config user.name` (primary)
-2. `KAMI_AUTHOR` environment variable (fallback)
+2. `KRAMIE_AUTHOR` environment variable (fallback)
 3. `"Kami"` (final fallback)
 
 For personal documents (resume/letter/portfolio), the HTML `<meta name="author">` should match the person's name in the content. For non-personal documents (one-pager/long-doc), leave the placeholder as-is and let the build script infer it.

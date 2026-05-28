@@ -1,31 +1,40 @@
-# Kami
+# K-Ramie
 
-> A warm parchment design system for AI-assisted professional documents. One accent color, serif-led hierarchy, and editorial whitespace.
+> A Korean-first warm parchment design system for AI-assisted professional documents. One accent color, serif-led hierarchy tuned for Hangul, editorial whitespace. Fork of Kami (tw93/Kami).
 
 ## Author
-- Name: Tw93
-- Site: https://tw93.fun
+- Owner: Chano-KR
+- Upstream: Tw93 (https://github.com/tw93/Kami)
 
-## What is Kami
-Kami is a layout design system for the AI era. Give Claude (or any LLM) a brief, and it produces polished documents: one-pagers, resumes, portfolios, slides, long docs, letters, equity reports, and changelogs. The system uses a warm parchment canvas (#f5f4ed), ink-blue accent (#1B365D), and Charter/TsangerJinKai serif fonts.
+## What is K-Ramie
+K-Ramie is a layout design system for the AI era, optimized for Korean–English bilingual output. Give Claude (or any LLM) a brief, and it produces polished documents: one-pagers, resumes, portfolios, slides, long docs, letters, equity reports, changelogs, blog posts. The system uses a warm parchment canvas (#f5f4ed), ink-blue accent (#1B365D), and a serif chain led by Chosunilbo Myungjo with Pretendard for UI.
 
 ## Key Pages
-- [English showcase](https://kami.tw93.fun): Design system overview with live demos
-- [Chinese showcase](https://kami.tw93.fun/index-zh.html): Chinese version
-- [Japanese showcase](https://kami.tw93.fun/index-ja.html): Japanese version (best-effort CJK path)
-- [GitHub](https://github.com/tw93/kami): Source code and templates
+- [Korean showcase](https://k-ramie.vercel.app/): Design system overview with live demos
+- [English showcase](https://k-ramie.vercel.app/index-en.html): English variant
+- [GitHub](https://github.com/Chano-KR/K-Ramie): Source code and templates
 
 ## Install
-- Claude Code: `npx skills add tw93/kami -a claude-code -g -y`
-- Claude Code plugin marketplace (v2.1.142+): `/plugin marketplace add tw93/kami && /plugin install kami@kami`
-- Generic agents: `npx skills add tw93/kami -a '*' -g -y`
-- Claude Desktop: download `kami.zip` from GitHub Releases and upload it in Skills settings
+- Claude Code: `npx skills add Chano-KR/K-Ramie -a claude-code -g -y`
+- Claude Code plugin marketplace (v2.1.142+): `/plugin marketplace add Chano-KR/K-Ramie && /plugin install k-ramie@k-ramie`
+- Generic agents: `npx skills add Chano-KR/K-Ramie -a '*' -g -y`
+- Claude Desktop: download `k-ramie.zip` from GitHub Releases and upload it in Skills settings
 
 ## Templates
-- One-pager, Letter, Resume, Long document, Portfolio, Slides, Equity report, Changelog
+- One-pager, Letter, Resume, Long document, Portfolio, Slides (Weasy / Keynote / Pitch / Vertical), Equity report, Changelog, Landing page, Blog index / post / series
 - 14 diagram types: architecture, flowchart, quadrant, bar chart, line chart, donut chart, state machine, timeline, swimlane, tree, layer stack, venn, candlestick, waterfall
 
+## Korean Typography
+- Body serif chain: Chosunilbo Myungjo → Bareun Batang → KoPub World Batang → Noto Serif KR → Source Han Serif K
+- UI sans: Pretendard → Noto Sans KR → Apple SD Gothic Neo → Malgun Gothic
+- Mono: JetBrains Mono → D2Coding → Fira Code
+- Display (opt-in only, not body): Sandoll Gukdae Tteokbokki
+
+## Subsystems
+- Slides: presentation deck templates (16:9 keynote, 16:9 pitch, 9:16 vertical) with deterministic per-template spacing and strict text-density limits
+- Blog: long-form personal website templates (index, post, series) with KO reading typography
+- Video (`remotion-skill/`): drop-in modular layer for existing Remotion harnesses; splits heavy motion (Remotion) vs lightweight scenes (Hyperframes); ffmpeg-stitched hybrid output
+
 ## Links
-- GitHub: https://github.com/tw93
-- Blog: https://tw93.fun
-- AI Profile: https://tw93.fun/llms-full.txt
+- GitHub: https://github.com/Chano-KR/K-Ramie
+- Upstream Kami: https://github.com/tw93/Kami

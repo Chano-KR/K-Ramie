@@ -133,9 +133,15 @@ def test_dist_package_contents() -> None:
 # --------------------------- shared registry ---------------------------
 
 def test_registry_consistency() -> None:
-    check("HTML_TEMPLATES has 16 entries", len(HTML_TEMPLATES) == 16,
+    # K-Ramie: 16 original (one-pager / letter / long-doc / portfolio / resume +
+    # equity-report + changelog + slides-weasy, each KO + EN) plus 6 added in
+    # the Phase 2 slide subsystem (slides-keynote / slides-pitch /
+    # slides-vertical, each KO + EN) = 22.
+    check("HTML_TEMPLATES has 22 entries", len(HTML_TEMPLATES) == 22,
           f"got {len(HTML_TEMPLATES)}")
-    check("SCREEN_TARGETS has 2 entries", len(SCREEN_TARGETS) == 2,
+    # K-Ramie: landing-page (KO + EN) plus Phase 3 blog subsystem
+    # (blog-index / blog-post / blog-series, each KO + EN) = 8.
+    check("SCREEN_TARGETS has 8 entries", len(SCREEN_TARGETS) == 8,
           f"got {len(SCREEN_TARGETS)}")
     check("build_targets matches HTML_TEMPLATES key set",
           set(build_targets()) == set(HTML_TEMPLATES))
@@ -168,11 +174,12 @@ def test_chinese_html_templates_keep_single_serif_stack() -> None:
           f"offenders: {', '.join(offenders)}")
 
 
-def test_chinese_slides_mono_has_cjk_fallback() -> None:
-    """Slide labels may mix mono Latin and CJK; the mono stack needs CJK fallback."""
+def test_korean_slides_mono_has_korean_mono_fallback() -> None:
+    """Slide labels may mix mono Latin and Hangul; the mono stack needs a
+    Korean-coding mono fallback so Hangul renders in the monospace metric."""
     text = (TEMPLATES / "slides-weasy.html").read_text(encoding="utf-8")
-    check("slides-weasy mono stack includes TsangerJinKai02 fallback",
-          '"TsangerJinKai02"' in text and '"Source Han Serif SC"' in text)
+    check("slides-weasy mono stack includes D2Coding fallback",
+          '"D2Coding"' in text and '"JetBrains Mono"' in text)
 
 
 # --------------------------- scan_file ---------------------------
@@ -773,7 +780,7 @@ def main() -> int:
     test_dist_package_contents()
     test_registry_consistency()
     test_chinese_html_templates_keep_single_serif_stack()
-    test_chinese_slides_mono_has_cjk_fallback()
+    test_korean_slides_mono_has_korean_mono_fallback()
     test_scan_file_skip_bug()
     test_scan_file_arrow_in_en()
     test_scan_file_clean_template()

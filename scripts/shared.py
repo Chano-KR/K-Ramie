@@ -119,11 +119,25 @@ HTML_TEMPLATES: dict[str, TemplateSpec] = {
     # Slides (WeasyPrint default)
     "slides-weasy":    TemplateSpec("slides-weasy.html",    0, 0),
     "slides-weasy-en": TemplateSpec("slides-weasy-en.html", 0, 0),
+    # K-Ramie slide subsystem (Phase 2)
+    "slides-keynote":     TemplateSpec("slides-keynote.html",     0, 0),
+    "slides-keynote-en":  TemplateSpec("slides-keynote-en.html",  0, 0),
+    "slides-pitch":       TemplateSpec("slides-pitch.html",       0, 0),
+    "slides-pitch-en":    TemplateSpec("slides-pitch-en.html",    0, 0),
+    "slides-vertical":    TemplateSpec("slides-vertical.html",    0, 0),
+    "slides-vertical-en": TemplateSpec("slides-vertical-en.html", 0, 0),
 }
 
 SCREEN_TEMPLATES: dict[str, str] = {
     "landing-page":    "landing-page.html",
     "landing-page-en": "landing-page-en.html",
+    # K-Ramie blog subsystem (Phase 3) — long-form personal website templates.
+    "blog-index":      "blog-index.html",
+    "blog-index-en":   "blog-index-en.html",
+    "blog-post":       "blog-post.html",
+    "blog-post-en":    "blog-post-en.html",
+    "blog-series":     "blog-series.html",
+    "blog-series-en":  "blog-series-en.html",
 }
 
 

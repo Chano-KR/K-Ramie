@@ -2,35 +2,19 @@
 <!-- ==================================================================
      LONG DOCUMENT TEMPLATE · parchment design system
      多页 A4 白皮书/技术报告/年度总结
-     结构：封面 -> 目录 -> 执行摘要 -> 正文章节 -> 附录
+     结构：封面 -> 目录 -> 실행 요약 -> 본문章节 -> 附录
      ================================================================== -->
-<html lang="zh-CN">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>{{文档标题}}</title>
-<meta name="author" content="{{作者}}">
-<meta name="description" content="{{摘要}}">
-<meta name="keywords" content="{{关键词}}">
-<meta name="generator" content="Kami">
+<title>{{文档제목}}</title>
+<meta name="author" content="{{작성자}}">
+<meta name="description" content="{{요약}}">
+<meta name="keywords" content="{{키워드}}">
+<meta name="generator" content="K-Ramie">
 <style>
   /* Regular weight */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
-
   /* Bold weight - W05 for all bold variants */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-
   @page {
     size: A4;
     margin: 20mm 22mm 22mm 22mm;
@@ -38,16 +22,14 @@
 
     @top-right {
       content: string(section-title);
-      font-family: "TsangerJinKai02", "Source Han Serif SC",
-                   "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-family: Georgia, serif;
       font-size: 8pt;
       color: #6b6a64;
     }
 
     @bottom-center {
-      content: counter(page) "  ·  {{文档标题}}";
-      font-family: "TsangerJinKai02", "Source Han Serif SC",
-                   "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      content: counter(page) "  ·  {{文档제목}}";
+      font-family: Georgia, serif;
       font-size: 9pt;
       color: #6b6a64;
     }
@@ -71,7 +53,7 @@
     --border:    #e8e6dc;
     --border-soft:#e5e3d8;
     --tag-bg:    #E4ECF5;
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo", "Bareun Batang", "BareunBatang", "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang", "Noto Serif KR", "Source Han Serif K", "Nanum Myeongjo", Georgia, "Iowan Old Style", Palatino, serif;
     --sans: var(--serif);
 
     --rhythm-module:  14pt;
@@ -268,8 +250,7 @@
      a mono font with CJK coverage. */
   code {
     font-family: "JetBrains Mono", "SF Mono", Consolas,
-                 "TsangerJinKai02", "Source Han Serif SC",
-                 "Noto Serif CJK SC", "Songti SC", monospace;
+                 monospace;
     font-size: 9pt;
     background: var(--ivory);
     padding: 1pt 4pt;
@@ -278,8 +259,7 @@
   }
   pre {
     font-family: "JetBrains Mono", "SF Mono", Consolas,
-                 "TsangerJinKai02", "Source Han Serif SC",
-                 "Noto Serif CJK SC", "Songti SC", monospace;
+                 monospace;
     font-size: 9pt;
     line-height: 1.5;
     background: var(--ivory);
@@ -418,11 +398,11 @@
 <section class="cover">
   <div>
     <div class="cover-eyebrow">{{EYEBROW · 如 "技术报告" / "年度总结" / "白皮书"}}</div>
-    <div class="cover-title">{{文档主标题<br>可以两行}}</div>
-    <div class="cover-sub">{{副标题，一句话说清这份文档是什么 / 为谁而写}}</div>
+    <div class="cover-title">{{文档主제목<br>可以两行}}</div>
+    <div class="cover-sub">{{副제목，一句话说清这份文档是什么 / 为谁而写}}</div>
   </div>
   <div class="cover-meta">
-    <strong>{{作者 / 团队}}</strong><br>
+    <strong>{{작성자 / 团队}}</strong><br>
     {{版本 V1.0}}  ·  {{日期 2026.04}}<br>
     {{发布方 / 机构}}
   </div>
@@ -433,7 +413,7 @@
   <h2>目录</h2>
   <div class="toc-item">
     <span class="toc-num">01</span>
-    <span class="toc-title">执行摘要</span>
+    <span class="toc-title">실행 요약</span>
     <span class="toc-page">03</span>
   </div>
   <div class="toc-item">
@@ -443,12 +423,12 @@
   </div>
   <div class="toc-item">
     <span class="toc-num">03</span>
-    <span class="toc-title">方法与发现</span>
+    <span class="toc-title">방법与发现</span>
     <span class="toc-page">06</span>
   </div>
   <div class="toc-item">
     <span class="toc-num">04</span>
-    <span class="toc-title">结论与建议</span>
+    <span class="toc-title">결론与建议</span>
     <span class="toc-page">09</span>
   </div>
   <div class="toc-item">
@@ -458,21 +438,21 @@
   </div>
 </section>
 
-<!-- ═════════════ Chapter 01：执行摘要 ═════════════ -->
+<!-- ═════════════ Chapter 01：실행 요약 ═════════════ -->
 <section class="chapter">
   <div class="chapter-num">01 · Executive Summary</div>
-  <h1>执行摘要</h1>
+  <h1>실행 요약</h1>
 
   <p class="lead">
-    {{一段 2-3 句话的大论点开场。用 <span class="hl">关键词高亮</span> 抓住读者注意力。
+    {{一段 2-3 句话的大논점开场。用 <span class="hl">키워드강조</span> 抓住读者注意力。
     让读者读这段就能理解整份文档想表达什么。}}
   </p>
 
   <h2>核心 Takeaways</h2>
   <ul>
-    <li>{{Takeaway 1：一句话，可量化的结论}}</li>
-    <li>{{Takeaway 2：有数据的洞察}}</li>
-    <li>{{Takeaway 3：对未来的判断}}</li>
+    <li>{{Takeaway 1：一句话，可量化的결론}}</li>
+    <li>{{Takeaway 2：有데이터的洞察}}</li>
+    <li>{{Takeaway 3：对未来的판단}}</li>
   </ul>
 
   <div class="takeaway">
@@ -487,17 +467,17 @@
   <h1>背景与问题定义</h1>
 
   <p class="lead">
-    {{章节导语：这一章要解决什么问题，为什么重要。1-2 句。}}
+    {{章节도입부：这一章要解决什么问题，为什么重要。1-2 句。}}
   </p>
 
   <h2>当前现状</h2>
-  <p>{{3-5 行段落，铺陈当前状况。用 <span class="hl">具体数据</span> 而不是形容词。}}</p>
+  <p>{{3-5 行단락，铺陈当前状况。用 <span class="hl">具体데이터</span> 而不是形容词。}}</p>
 
   <h2>核心问题</h2>
-  <p>{{陈述具体的核心问题。可以用 callout 突出关键观察：}}</p>
+  <p>{{陈述具体的核心问题。可以用 callout 突出关键관찰：}}</p>
 
   <div class="callout">
-    {{一段重要引用或核心观察。和正文语气略有不同，给读者呼吸节奏。}}
+    {{一段重要引用或核心관찰。和본문语气略有不同，给读者呼吸节奏。}}
   </div>
 
   <h2>衡量标准</h2>
@@ -513,29 +493,29 @@
     <tbody>
       <tr>
         <td>{{维度 1}}</td>
-        <td>{{数据}}</td>
-        <td>{{数据}}</td>
+        <td>{{데이터}}</td>
+        <td>{{데이터}}</td>
         <td>{{差距}}</td>
       </tr>
       <tr>
         <td>{{维度 2}}</td>
-        <td>{{数据}}</td>
-        <td>{{数据}}</td>
+        <td>{{데이터}}</td>
+        <td>{{데이터}}</td>
         <td>{{差距}}</td>
       </tr>
     </tbody>
   </table>
 </section>
 
-<!-- ═════════════ Chapter 03：方法 ═════════════ -->
+<!-- ═════════════ Chapter 03：방법 ═════════════ -->
 <section class="chapter">
   <div class="chapter-num">03 · Methodology</div>
-  <h1>方法与发现</h1>
+  <h1>방법与发现</h1>
 
-  <p class="lead">{{章节导语}}</p>
+  <p class="lead">{{章节도입부}}</p>
 
-  <h2>研究方法</h2>
-  <p>{{描述方法论。可以用代码 / 公式示例：}}</p>
+  <h2>研究방법</h2>
+  <p>{{설명방법论。可以用代码 / 公式示例：}}</p>
 
   <pre><code class="language-python">def analyze(data):
     """Transform raw data."""
@@ -543,10 +523,10 @@
 
   <h2>关键发现</h2>
 
-  <h3>发现 1：{{标题}}</h3>
-  <p>{{一段论述。包含数据：<span class="hl">具体数字 / 具体比例</span>。}}</p>
+  <h3>发现 1：{{제목}}</h3>
+  <p>{{一段论述。包含데이터：<span class="hl">具体숫자 / 具体比例</span>。}}</p>
 
-  <h3>发现 2：{{标题}}</h3>
+  <h3>发现 2：{{제목}}</h3>
   <p>{{一段论述。}}</p>
 
   <blockquote>
@@ -555,22 +535,22 @@
   </blockquote>
 </section>
 
-<!-- ═════════════ Chapter 04：结论 ═════════════ -->
+<!-- ═════════════ Chapter 04：결론 ═════════════ -->
 <section class="chapter">
   <div class="chapter-num">04 · Conclusions</div>
-  <h1>结论与建议</h1>
+  <h1>결론与建议</h1>
 
-  <p class="lead">{{章节导语：一句话总结结论，下面展开建议。}}</p>
+  <p class="lead">{{章节도입부：一句话总结결론，下面展开建议。}}</p>
 
-  <h2>核心结论</h2>
+  <h2>核心결론</h2>
   <ol>
-    <li>{{结论 1}}</li>
-    <li>{{结论 2}}</li>
-    <li>{{结论 3}}</li>
+    <li>{{결론 1}}</li>
+    <li>{{결론 2}}</li>
+    <li>{{결론 3}}</li>
   </ol>
 
   <h2>下一步建议</h2>
-  <p>{{基于结论的具体可执行建议。}}</p>
+  <p>{{基于결론的具体可执行建议。}}</p>
 
   <div class="takeaway">
     <div class="takeaway-label">Call to Action</div>
@@ -594,7 +574,7 @@
   <p><strong>{{术语}}</strong>：{{定义}}</p>
 
   <h2>C. 致谢</h2>
-  <p>{{致谢段落}}</p>
+  <p>{{致谢단락}}</p>
 </section>
 
 </body>

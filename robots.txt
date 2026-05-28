@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://kami.tw93.fun/sitemap.xml
+Sitemap: https://k-ramie.vercel.app/sitemap.xml
 
 # Search Engines
 User-agent: Googlebot

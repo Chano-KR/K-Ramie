@@ -1,12 +1,37 @@
 {
-  "_description": "CSS variables in :root that may legitimately differ between a CN template and its EN counterpart. Anything not listed here must match across the pair.",
+  "_description": "CSS variables in :root that may legitimately differ between a default-slot (Korean) template and its -en (English) counterpart. Anything not listed here must match across the pair. See references/design.md for the typography rules these allowances support.",
   "always_allowed": [
     "--serif",
     "--sans",
     "--mono",
-    "--latin-ui"
+    "--latin-ui",
+    "--display"
   ],
   "per_pair_allowed": {
-    "_doc": "key = template base name (e.g. 'one-pager'); value = list of additional CSS variables that may differ for that pair only"
+    "_doc": "key = template base name (e.g. 'one-pager'); value = list of additional CSS variables that may differ for that pair only. Slide templates may drift on per-template typography metrics; see references/design.md slide-deck section.",
+    "slides-keynote": [
+      "--slide-body-tracking",
+      "--slide-title-tracking",
+      "--slide-body-leading",
+      "--slide-title-leading"
+    ],
+    "slides-pitch": [
+      "--slide-body-tracking",
+      "--slide-title-tracking",
+      "--slide-body-leading",
+      "--slide-title-leading"
+    ],
+    "slides-vertical": [
+      "--slide-body-tracking",
+      "--slide-title-tracking",
+      "--slide-body-leading",
+      "--slide-title-leading"
+    ],
+    "slides-weasy": [
+      "--slide-body-tracking",
+      "--slide-title-tracking",
+      "--slide-body-leading",
+      "--slide-title-leading"
+    ]
   }
 }

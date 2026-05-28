@@ -1,10 +1,10 @@
 # Brand Profile (Optional)
 #
-# Kami treats this as the lowest-resolution context: a fallback when the current
+# K-Ramie treats this as the lowest-resolution context: a fallback when the current
 # request is ambiguous. The current document's needs always come first. Leave
 # fields blank when you don't have a strong preference — silence is fine.
 #
-# To activate: cp references/brand.example.md ~/.config/kami/brand.md
+# To activate: cp references/brand.example.md ~/.config/k-ramie/brand.md
 # Then edit the values below.
 
 ---

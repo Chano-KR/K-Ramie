@@ -1,32 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>{{姓名}} · 简历</title>
 <meta name="author" content="{{姓名}}">
-<meta name="description" content="{{摘要}}">
-<meta name="keywords" content="{{关键词}}">
-<meta name="generator" content="Kami">
+<meta name="description" content="{{요약}}">
+<meta name="keywords" content="{{키워드}}">
+<meta name="generator" content="K-Ramie">
 <style>
   /* W04 / regular face for body text */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
-
   /* W05 / medium face for headings (no synthetic bold) */
-  @font-face {
-    font-family: "TsangerJinKai02";
-    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
-       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-
-@page {
+  @page {
     size: A4;
     margin: 11mm 13mm 11mm 13mm;
     background: #f5f4ed;
@@ -47,7 +31,7 @@
     --brand:     #1B365D;
     --brand-tint: #EEF2F7;          /* solid equivalent of rgba(1B365D, 0.08), avoids tag double-rectangle bug */
     --brand-tint-strong: #E4ECF5;   /* solid equivalent of rgba(1B365D, 0.14) */
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --serif: "Chosunilbo Myungjo", "ChosunilboMyungjo", "Bareun Batang", "BareunBatang", "KoPub World Batang", "KoPubWorld Batang", "KoPub Batang", "Noto Serif KR", "Source Han Serif K", "Nanum Myeongjo", Georgia, "Iowan Old Style", Palatino, serif;
     --sans: var(--serif);
   }
 
@@ -501,13 +485,13 @@
 <body>
 
 <!-- =====================================================================
-     使用说明：
- - 所有 {{变量}} 替换为实际内容
- - 删除不适用的 section（如无开源/AI判断/对外影响力）
- - 项目可加减，每个严格遵守 角色/动作/结果 三段式
+     使用설명：
+ - 所有 {{变量}} 替换为实际내용
+ - 删除不适用的 section（如无开源/AI판단/对外영향力）
+ - 프로젝트可加减，每个严格遵守 角色/动作/结果 三段式
  - 改完验证：必须 2 页
        python3 -c "from weasyprint import HTML; HTML('resume.html').write_pdf('out.pdf')"
- - 内容策略详见 references/writing.md
+ - 내용策略详见 references/writing.md
      ===================================================================== -->
 
 
@@ -522,12 +506,12 @@
   </div>
 </div>
 
-<!-- 4 个最强的数字标签 -->
+<!-- 4 个最强的숫자标签 -->
 <div class="metrics">
-  <div class="metric"><span class="metric-value serif">{{数字}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
-  <div class="metric"><span class="metric-value serif">{{数字}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
-  <div class="metric"><span class="metric-value serif">{{数字}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
-  <div class="metric"><span class="metric-value serif">{{数字}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
+  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
+  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
+  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
+  <div class="metric"><span class="metric-value serif">{{숫자}}<span class="unit">{{单位}}</span></span><span class="metric-label">{{标签}}</span></div>
 </div>
 
 <section>
@@ -543,30 +527,30 @@
   <!-- Timeline 3 步：长期演进信号 -->
   <div class="timeline">
     <div class="tl-step">
-      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段标题}}</div></div>
+      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段제목}}</div></div>
       <div class="tl-body">{{一句解释这一步的意义}}</div>
     </div>
     <div class="tl-step">
-      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段标题}}</div></div>
+      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段제목}}</div></div>
       <div class="tl-body">{{一句解释这一步的意义}}</div>
     </div>
     <div class="tl-step">
-      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段标题}}</div></div>
+      <div class="tl-top"><div class="tl-year serif">{{年份}}</div><div class="tl-head">{{阶段제목}}</div></div>
       <div class="tl-body">{{一句解释这一步的意义}}</div>
     </div>
   </div>
 
-  <!-- 项目模板 - 重复此块 3-5 次 -->
+  <!-- 프로젝트模板 - 重复此块 3-5 次 -->
   <div class="project">
     <div class="proj-head">
-      <span class="proj-name serif">{{项目名}}</span>
-      <span class="proj-kind">· {{项目类型}}</span>
+      <span class="proj-name serif">{{프로젝트名}}</span>
+      <span class="proj-kind">· {{프로젝트유형}}</span>
       <span class="proj-role">{{角色定位，如"方向主导"}}</span>
     </div>
     <div class="proj-lines">
       <div class="proj-row">
         <div class="proj-label">角色</div>
-        <div class="proj-text">{{~60 字：项目是什么 + 为什么做 + 你的位置}}</div>
+        <div class="proj-text">{{~60 字：프로젝트是什么 + 为什么做 + 你的位置}}</div>
       </div>
       <div class="proj-row">
         <div class="proj-label">动作</div>
@@ -574,15 +558,15 @@
       </div>
       <div class="proj-row">
         <div class="proj-label">结果</div>
-        <div class="proj-text">{{~100 字：数据为王。<span class="hl">关键数字</span> 高亮 1-2 处。}}</div>
+        <div class="proj-text">{{~100 字：데이터为王。<span class="hl">关键숫자</span> 강조 1-2 处。}}</div>
       </div>
     </div>
   </div>
 
   <div class="project">
     <div class="proj-head">
-      <span class="proj-name serif">{{项目名}}</span>
-      <span class="proj-kind">· {{项目类型}}</span>
+      <span class="proj-name serif">{{프로젝트名}}</span>
+      <span class="proj-kind">· {{프로젝트유형}}</span>
       <span class="proj-role">{{角色定位}}</span>
     </div>
     <div class="proj-lines">
@@ -596,21 +580,21 @@
       </div>
       <div class="proj-row">
         <div class="proj-label">结果</div>
-        <div class="proj-text">{{~100 字，含 <span class="hl">关键数字</span>}}</div>
+        <div class="proj-text">{{~100 字，含 <span class="hl">关键숫자</span>}}</div>
       </div>
     </div>
   </div>
 
   <div class="project">
     <div class="proj-head">
-      <span class="proj-name serif">{{项目名}}</span>
-      <span class="proj-kind">· {{项目类型}}</span>
+      <span class="proj-name serif">{{프로젝트名}}</span>
+      <span class="proj-kind">· {{프로젝트유형}}</span>
       <span class="proj-role">{{角色}}</span>
     </div>
     <div class="proj-lines">
       <div class="proj-row">
         <div class="proj-label">角色</div>
-        <div class="proj-text">{{项目背景和定位}}</div>
+        <div class="proj-text">{{프로젝트背景和定位}}</div>
       </div>
       <div class="proj-row">
         <div class="proj-label">动作</div>
@@ -618,7 +602,7 @@
       </div>
       <div class="proj-row">
         <div class="proj-label">结果</div>
-        <div class="proj-text">{{可量化结果，含 <span class="hl">关键数字</span>}}</div>
+        <div class="proj-text">{{可量化结果，含 <span class="hl">关键숫자</span>}}</div>
       </div>
     </div>
   </div>
@@ -628,7 +612,7 @@
 <!-- ═══════════ PAGE 2 ═══════════ -->
 
 <section class="page-break">
-  <div class="section-title">开源项目 &amp; 独立开发者<span class="sub">{{时间跨度}} · {{一句副标题}}</span></div>
+  <div class="section-title">开源프로젝트 &amp; 独立开发者<span class="sub">{{时间跨度}} · {{一句副제목}}</span></div>
 
   <div class="os-intro">
     <span class="hl">{{一句自我定位}}</span>，{{简述开发者身份：设计审美 / 独立完成流程 / 跨语言实战 / 用户反馈}}。GitHub 累计 <span class="strong">{{STARS_TOTAL}} stars · {{FORKS_TOTAL}} forks · {{FOLLOWERS_TOTAL}} followers</span>。
@@ -636,88 +620,88 @@
 
   <div class="os-grid">
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{项目名}}</a></span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
       <span class="os-desc">{{语言 + 核心定位 + 平台}}</span>
       <span class="os-star big">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{项目名}}</a></span>
-      <span class="os-desc">{{描述}}</span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-desc">{{설명}}</span>
       <span class="os-star big">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{项目名}}</a></span>
-      <span class="os-desc">{{描述}}</span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-desc">{{설명}}</span>
       <span class="os-star">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{项目名}}</a></span>
-      <span class="os-desc">{{描述}}</span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-desc">{{설명}}</span>
       <span class="os-star">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{项目名}}</a></span>
-      <span class="os-desc">{{描述}}</span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-desc">{{설명}}</span>
       <span class="os-star">★ {{STARS}}</span>
     </div>
     <div class="os-item">
-      <span class="os-name serif"><a href="{{URL}}">{{项目名}}</a></span>
-      <span class="os-desc">{{描述}}</span>
+      <span class="os-name serif"><a href="{{URL}}">{{프로젝트名}}</a></span>
+      <span class="os-desc">{{설명}}</span>
       <span class="os-star">★ {{STARS}}</span>
     </div>
   </div>
 
   <div class="os-highlight">
-    <span class="tag">{{亮点 TAG}}</span>{{这个项目的独特故事：开源时机 / 传播范围 / 知名人物推荐等}}
+    <span class="tag">{{亮点 TAG}}</span>{{这个프로젝트的独特故事：开源时机 / 传播范围 / 知名人物推荐等}}
   </div>
 </section>
 
 <section>
-  <div class="section-title">AI 判断与行动</div>
+  <div class="section-title">AI 판단与行动</div>
   <div class="convictions">
     <div class="conv-card">
-      <div class="conv-head"><span class="year">{{时间}}</span>{{事件标题}}</div>
+      <div class="conv-head"><span class="year">{{时间}}</span>{{事件제목}}</div>
       <div class="conv-body">
-        {{具体做了什么判断或行动，为什么证明判断力}}
+        {{具体做了什么판단或行动，为什么证明판단力}}
       </div>
     </div>
     <div class="conv-card">
-      <div class="conv-head"><span class="year">{{时间}}</span>{{事件标题}}</div>
+      <div class="conv-head"><span class="year">{{时间}}</span>{{事件제목}}</div>
       <div class="conv-body">
-        {{具体做了什么判断或行动}}
+        {{具体做了什么판단或行动}}
       </div>
     </div>
     <div class="conv-card">
-      <div class="conv-head"><span class="year">{{时间}}</span>{{事件标题}}</div>
+      <div class="conv-head"><span class="year">{{时间}}</span>{{事件제목}}</div>
       <div class="conv-body">
-        {{具体做了什么判断或行动}}
+        {{具体做了什么판단或行动}}
       </div>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="section-title">对外影响力</div>
+  <div class="section-title">对外영향力</div>
 
   <div class="handle-strip">
     <span class="handle serif">{{平台}} · <a href="{{URL}}">@{{HANDLE}}</a></span>
     <span class="follower">{{粉丝数}} 粉丝</span>
-    <span class="desc">{{博客 / 周刊 / 其他内容产品简介}}</span>
+    <span class="desc">{{博客 / 周刊 / 其他내용产品简介}}</span>
   </div>
 
   <div class="impact-grid">
     <div>
-      <div class="inf-block-title">代表性技术长文<span class="small">{{副标题}}</span></div>
+      <div class="inf-block-title">代表性技术长文<span class="small">{{副제목}}</span></div>
       <div class="art-row">
         <div class="art-header">
-          <a class="art-title" href="{{URL}}">《{{文章标题}}》</a>
+          <a class="art-title" href="{{URL}}">《{{文章제목}}》</a>
           <span class="art-date">{{日期}}</span>
         </div>
-        <div class="art-stats">{{浏览量 / 赞数 / 影响力指标}}</div>
+        <div class="art-stats">{{浏览量 / 赞数 / 영향力指标}}</div>
       </div>
       <div class="art-row">
         <div class="art-header">
-          <a class="art-title" href="{{URL}}">《{{文章标题}}》</a>
+          <a class="art-title" href="{{URL}}">《{{文章제목}}》</a>
           <span class="art-date">{{日期}}</span>
         </div>
         <div class="art-stats">{{浏览量 / 赞数}}</div>
@@ -725,17 +709,17 @@
     </div>
 
     <div>
-      <div class="inf-block-title">受邀演讲<span class="small">{{副标题}}</span></div>
+      <div class="inf-block-title">受邀演讲<span class="small">{{副제목}}</span></div>
       <div class="talk-row">
         <div>
-          <div class="talk-title">《{{演讲标题}}》</div>
+          <div class="talk-title">《{{演讲제목}}》</div>
           <div class="talk-venue">{{主办方 / 地点}}</div>
         </div>
         <div class="talk-date">{{日期}}</div>
       </div>
       <div class="talk-row">
         <div>
-          <div class="talk-title">《{{演讲标题}}》</div>
+          <div class="talk-title">《{{演讲제목}}》</div>
           <div class="talk-venue">{{主办方 / 地点}}</div>
         </div>
         <div class="talk-date">{{日期}}</div>
@@ -746,26 +730,26 @@
 
 <section>
   <div class="section-title">核心能力</div>
-  <!-- 5 项固定结构，每项至少 1 处橙色高亮 -->
+  <!-- 5 项固定结构，每项至少 1 处橙色강조 -->
   <div class="skill-row">
     <div class="skill-label">{{能力 1<br>标签}}</div>
-    <div class="skill-body">{{描述。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
   </div>
   <div class="skill-row">
     <div class="skill-label">{{能力 2<br>标签}}</div>
-    <div class="skill-body">{{描述。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
   </div>
   <div class="skill-row">
     <div class="skill-label">{{能力 3<br>标签}}</div>
-    <div class="skill-body">{{描述。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
   </div>
   <div class="skill-row">
     <div class="skill-label">{{能力 4<br>标签}}</div>
-    <div class="skill-body">{{描述。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
   </div>
   <div class="skill-row">
     <div class="skill-label">{{能力 5<br>标签}}</div>
-    <div class="skill-body">{{描述。至少 <span class="em-brand">1 处强调</span>}}</div>
+    <div class="skill-body">{{설명。至少 <span class="em-brand">1 处强调</span>}}</div>
   </div>
 </section>
 
@@ -774,7 +758,7 @@
   <div class="edu-row">
     <div>
       <span class="school serif">{{学校}}</span>
-      <span class="major">　· {{学院}} · {{专业}} · {{一句判断性描述，如"放弃保研直接就业"}}</span>
+      <span class="major">　· {{学院}} · {{专业}} · {{一句판단性설명，如"放弃保研直接就业"}}</span>
     </div>
     <div class="date">{{起止时间}}</div>
   </div>

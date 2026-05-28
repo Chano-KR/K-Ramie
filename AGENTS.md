@@ -1,10 +1,10 @@
-# Kami Agent Guide
+# K-Ramie Agent Guide
 
 > Personal/global agent rules may live outside this repository. This file records Kami-specific repository maps, Working Rules, Current Risk Areas, Verification, Release Flow, and Fonts.
 
 ## Project
 
-Kami is a document-generation skill and template system. It ships editorial HTML templates, reference guides, demo assets, and a packaged skill archive.
+K-Ramie is a Korean-first document-generation skill and template system. It ships editorial HTML templates, reference guides, demo assets, and a packaged skill archive.
 
 ## Repository Map
 
@@ -24,7 +24,7 @@ Kami is a document-generation skill and template system. It ships editorial HTML
 - `assets/templates/` - document templates including browser-only landing page variants.
 - `scripts/highlight.py` - Pygments-based syntax highlighting for code blocks at build time.
 - `assets/demos/` - README showcase demos.
-- `assets/showcase/` - README and public-site-only screenshots; excluded from `dist/kami.zip`.
+- `assets/showcase/` - README and public-site-only screenshots; excluded from `dist/k-ramie.zip`.
 - `assets/diagrams/` - diagram prototypes and generated diagram assets.
 - `assets/fonts/` and `assets/illustrations/` - bundled visual assets.
 - `styles.css` - shared web-facing styles.
@@ -44,8 +44,8 @@ Kami is a document-generation skill and template system. It ships editorial HTML
 - `scripts/draft-release-notes.py` - bilingual release notes scaffold from `git log`.
 - `scripts/tests/test_build.py` - zero-dependency test suite for build, stabilize, and shared helpers.
 - `.github/workflows/check.yml` - PR/push CI that runs `--check` and the test suite.
-- `.github/workflows/release.yml` - tag-triggered workflow that builds and attaches `dist/kami.zip` to the release.
-- `dist/kami.zip` - tracked release archive.
+- `.github/workflows/release.yml` - tag-triggered workflow that builds and attaches `dist/k-ramie.zip` to the release.
+- `dist/k-ramie.zip` - tracked release archive.
 
 Reference docs are English-only. Language-specific output differences belong in templates, not duplicated reference files.
 
@@ -78,8 +78,8 @@ bash scripts/package-skill.sh
 - Do not use graphic emoticons in docs, template comments, or script output.
 - Use `OK:` and `ERROR:` for status text in scripts.
 - Use `scripts/ensure-fonts.sh` to recover required fonts with retry and size validation when local font files are missing or truncated.
-- Do not bundle large commercial font files into `dist/kami.zip`; package scripts should exclude them while templates keep stable local-preview paths.
-- Do not bundle README/public-site-only showcase screenshots into `dist/kami.zip`; keep them under `assets/showcase/` and exclude that directory in `scripts/package-skill.sh`.
+- Do not bundle large commercial font files into `dist/k-ramie.zip`; package scripts should exclude them while templates keep stable local-preview paths.
+- Do not bundle README/public-site-only showcase screenshots into `dist/k-ramie.zip`; keep them under `assets/showcase/` and exclude that directory in `scripts/package-skill.sh`.
 - Keep multilingual public pages, `llms.txt`, `robots.txt`, sitemap, JSON-LD, and FAQ content aligned when changing public positioning or install instructions.
 - Brand profile support is optional context. Keep public examples in `references/`; do not hard-code a maintainer's private local profile content.
 - Slides default to WeasyPrint HTML-to-PDF templates unless the user explicitly needs editable PPTX output.
@@ -88,9 +88,9 @@ bash scripts/package-skill.sh
 
 ## Refactor And Packaging Hard Stops
 
-- When refactoring `scripts/build.py`, `scripts/stabilize.py`, or package helpers into new modules, confirm every new helper file is tracked by Git. `scripts/package-skill.sh` packages from `git ls-files`, so untracked modules pass local imports but disappear from `dist/kami.zip`.
-- Any source change that adds scripts, templates, reference JSON, workflows, or package inputs must refresh and inspect `dist/kami.zip`; package freshness is part of release readiness, not a later cleanup step.
-- Changes to `SKILL.md`, templates, scripts, references, or package inputs must decide explicitly whether `dist/kami.zip` needs refresh. If the behavior is shipped through the skill package, rebuild and inspect the ZIP before handoff.
+- When refactoring `scripts/build.py`, `scripts/stabilize.py`, or package helpers into new modules, confirm every new helper file is tracked by Git. `scripts/package-skill.sh` packages from `git ls-files`, so untracked modules pass local imports but disappear from `dist/k-ramie.zip`.
+- Any source change that adds scripts, templates, reference JSON, workflows, or package inputs must refresh and inspect `dist/k-ramie.zip`; package freshness is part of release readiness, not a later cleanup step.
+- Changes to `SKILL.md`, templates, scripts, references, or package inputs must decide explicitly whether `dist/k-ramie.zip` needs refresh. If the behavior is shipped through the skill package, rebuild and inspect the ZIP before handoff.
 - If `python3 scripts/build.py --verify` fails only because the host Python lacks PPTX fallback dependencies such as `python-pptx`, verify `slides` and `slides-en` from a temporary venv instead of treating the environment miss as a source regression.
 - Do not commit one-off review reports or diagnostic snapshots as durable docs. Extract stable rules into `AGENTS.md`, `CLAUDE.md`, `SKILL.md`, or `references/` and discard the stale report.
 
@@ -98,7 +98,7 @@ bash scripts/package-skill.sh
 
 - Tests that need `weasyprint` / `pypdf` / `PyMuPDF` must run in a CI job that installs those deps (currently `verify-render`). The `lint-and-test` job ships only Pygments, so a `find_spec(...) is not None` skip-guard there silently skips the test while still printing `OK:`. A green `lint-and-test` does not mean the solver / render tests ran.
 - Edits to `.github/workflows/*.yml` should be validated on a feature branch (push, watch the run go green) before merging to `main`. Local font / dependency / runner assumptions diverge from CI more often than expected: this project has already burned commits on `pip` cache requiring a manifest, the `fallback_present` set missing Ubuntu defaults (DejaVu / Liberation), and CI never having commercial fonts (Charter / TsangerJinKai02).
-- Differences between CI and host behavior are expressed as a single explicit opt-in env var (`KAMI_ALLOW_FALLBACK_ONLY=1` for missing primary fonts). When a third such flag is needed, migrate to `references/verify_profile.json` or a `--ci-mode` CLI flag instead of letting `KAMI_*` env vars sprawl.
+- Differences between CI and host behavior are expressed as a single explicit opt-in env var (`KRAMIE_ALLOW_FALLBACK_ONLY=1` for missing primary fonts). When a third such flag is needed, migrate to `references/verify_profile.json` or a `--ci-mode` CLI flag instead of letting `KRAMIE_*` env vars sprawl.
 
 ## Current Risk Areas
 
@@ -106,7 +106,7 @@ bash scripts/package-skill.sh
 - Slide output has two paths: `slides-weasy*.html` for default PDF decks and `slides*.py` for editable PPTX fallback.
 - AI/public visibility spans `index*.html`, `llms.txt`, `robots.txt`, `sitemap.xml`, FAQ JSON-LD, README install text, diagram counts, and release archive links.
 - `scripts/shared.py` centralizes constants used by build and stabilization scripts; keep paths and target names in sync before adding templates or diagrams.
-- `dist/kami.zip` is a tracked release archive. Packaging changes must update and inspect it deliberately.
+- `dist/k-ramie.zip` is a tracked release archive. Packaging changes must update and inspect it deliberately.
 - `stabilize.py` only targets templates with `stabilize_max_pages > 0` in `HTML_TEMPLATES`. The `slides-weasy`, `equity-report`, `changelog`, and `landing-page` templates are intentionally excluded: the overflow solver is not appropriate for multi-page decks, paginated reports, or browser-only screen templates.
 
 ## High-Risk Pitfalls
@@ -146,7 +146,7 @@ magick /tmp/stacked.png -gravity Center -background '#f5f4ed' -extent 1241x1754 
 ## Verification Details
 
 - Expected page counts: one-pager 1, letter 1, resume 2 strict, long-doc 7 plus or minus 2, portfolio 6 plus or minus 2, slides 7 plus or minus 3, equity-report 2 to 3, changelog 1 to 2. Landing pages are browser-only HTML with no PDF page count.
-- `scripts/build.py` sets PDF `/Author` from `git config user.name` or `KAMI_AUTHOR` only when the template still has an author placeholder. `/Producer` and `/Creator` should remain `Kami`.
+- `scripts/build.py` sets PDF `/Author` from `git config user.name` or `KRAMIE_AUTHOR` only when the template still has an author placeholder. `/Producer` and `/Creator` should remain `K-Ramie`.
 - Demo PNGs under `assets/demos/` are first-page previews at 1241x1754px. For slide demos, capture the first two landscape pages, stack them with a parchment gap, then extend to 1241x1754px.
 - Diagram count and names must stay aligned across `SKILL.md`, `CHEATSHEET.md`, `README.md`, `index*.html`, and `assets/diagrams/`.
 
@@ -158,7 +158,7 @@ magick /tmp/stacked.png -gravity Center -background '#f5f4ed' -extent 1241x1754 
 - Font issues: run `bash scripts/ensure-fonts.sh`, then rebuild the affected target.
 - Slide rhythm or deck changes: run `python3 scripts/build.py --check-rhythm slides slides-en` plus the affected render command.
 - Public site or AI visibility changes: check `index*.html`, `llms.txt`, `robots.txt`, `sitemap.xml`, and README links together.
-- Packaging changes: run `bash scripts/package-skill.sh` and confirm `dist/kami.zip` stays small enough for release upload.
+- Packaging changes: run `bash scripts/package-skill.sh` and confirm `dist/k-ramie.zip` stays small enough for release upload.
 - Documentation-only changes: check links and references.
 
 ## Release Notes
@@ -167,14 +167,16 @@ For public releases, keep notes concise and bilingual when requested. Use one-to
 
 ## Release Flow
 
-- `bash scripts/package-skill.sh` writes the tracked `dist/kami.zip` release archive and excludes large TsangerJinKai font files plus README/public-site-only showcase screenshots.
-- `dist/kami.zip` should be committed with release changes and uploaded to the latest GitHub release asset when refreshing the Claude Desktop package.
-- README and public site download links use `https://github.com/tw93/kami/releases/latest/download/kami.zip`; prefer refreshing that asset for small packaging or documentation fixes instead of creating a new tag.
+- `bash scripts/package-skill.sh` writes the tracked `dist/k-ramie.zip` release archive and excludes large TsangerJinKai font files plus README/public-site-only showcase screenshots.
+- `dist/k-ramie.zip` should be committed with release changes and uploaded to the latest GitHub release asset when refreshing the Claude Desktop package.
+- README and public site download links use `https://github.com/Chano-KR/K-Ramie/releases/latest/download/k-ramie.zip`; prefer refreshing that asset for small packaging or documentation fixes instead of creating a new tag.
 - Create a new version tag only when the maintainer explicitly wants a versioned release.
 
 ## Fonts
 
-- Chinese templates use TsangerJinKai02 W04/W05. Commercial use requires the appropriate font license.
-- If TsangerJinKai is unavailable, fall back through Source Han Serif SC, Noto Serif CJK SC, Songti SC, STSong, then Georgia.
-- English templates use Charter serif. Japanese output uses YuMincho first, then Hiragino Mincho ProN, Noto Serif CJK JP, Source Han Serif JP, TsangerJinKai02, and generic serif.
-- Claude Desktop ZIPs do not bundle TsangerJinKai TTF files. Run `bash scripts/ensure-fonts.sh` before building Chinese documents when fonts are missing.
+- Korean default-slot templates use the editorial serif chain `Chosunilbo Myungjo` → `Bareun Batang` → `KoPub World Batang` → `Noto Serif KR` → `Source Han Serif K` → `Nanum Myeongjo` → `Georgia`. All faces in the chain are free for commercial use; see `FONTS.md` for per-font license terms and download sources.
+- English `-en` templates use Charter serif with Georgia / Iowan Old Style / Palatino as fallbacks.
+- UI sans (captions, switcher, button labels) is Pretendard with Noto Sans KR / Apple SD Gothic Neo / Malgun Gothic / system-ui fallbacks. Mono is JetBrains Mono with D2Coding fallback so Hangul renders in the monospace metric.
+- `--display` opt-in slot (Sandoll Gukdae Tteokbokki) is gated behind `.display`, `.poster`, `.hero-mark` classes and must not be inherited by body, headings, or slide titles. Sandoll's license forbids CI/BI use; that constraint is enforced by class isolation.
+- `dist/k-ramie.zip` does not bundle commercial fonts. Run `bash scripts/ensure-fonts.sh` to auto-fetch Pretendard and verify manual-install Korean fonts; missing fonts fall back through the system chain and pages still render.
+- Latin substrings inside Korean body wrap with `<span class="lat">...</span>` so they pick up the `--latin-ui` proxy stack (Charter) instead of dropping out of the editorial face mid-line.
