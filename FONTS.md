@@ -2,7 +2,9 @@
 
 Every font referenced by K-Ramie, its role, its license, and where to get it.
 
-K-Ramie does **not** bundle commercial fonts in the release archive (`dist/k-ramie.zip`). Bundled files live under `assets/fonts/<FontFamily>/<file>.woff2` and are loaded by templates and `styles.css`. Where a font has no stable mirror, `scripts/ensure-fonts.sh` documents the manual-install path. When a face is missing locally, the system fallback chain (`Noto Serif KR`, `Apple SD Gothic Neo`, `Malgun Gothic`, etc.) takes over and pages still render.
+K-Ramie does **not** bundle commercial fonts in the release archive (`dist/k-ramie.zip`). Bundled files live under `assets/fonts/<FontFamily>/<file>.woff2` and are loaded by templates and `styles.css`. Where a font has no stable mirror, `scripts/ensure-fonts.sh` (POSIX / Git Bash / WSL) and `scripts/ensure-fonts.ps1` (Windows PowerShell) document the manual-install path and auto-fetch the few fonts that have stable, redistribution-friendly mirrors (currently only Pretendard via the official GitHub raw URL). When a face is missing locally, the system fallback chain (`Noto Serif KR`, `Apple SD Gothic Neo`, `Malgun Gothic`, etc.) takes over and pages still render.
+
+**Windows note:** `scripts/ensure-fonts.ps1` runs natively in PowerShell 5.1+ and uses `curl.exe --ssl-no-revoke` to bypass Schannel CRL offline failures that commonly affect the bash script on Windows.
 
 | Font | Role | License | Bundled? | Source |
 |---|---|---|---|---|

@@ -16,7 +16,8 @@ python3 scripts/build.py --check           # quick lint + token sync
 python3 scripts/build.py --verify          # full verification
 python3 scripts/stabilize.py all --report  # HTML template normalization
 python3 scripts/tests/test_build.py        # test suite
-bash scripts/ensure-fonts.sh               # Korean web font fetch / verify
+bash scripts/ensure-fonts.sh               # Korean web font fetch / verify (POSIX / Git Bash / WSL)
+pwsh scripts/ensure-fonts.ps1              # Korean web font fetch / verify (Windows PowerShell)
 bash scripts/package-skill.sh              # build release archive (dist/k-ramie.zip)
 ```
 
